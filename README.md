@@ -1,4 +1,6 @@
-# Getting Started
+# Rate My Hackathon - Frontend (Client)
+
+## Getting Started
 
 To run the client:
 
