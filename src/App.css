@@ -32,25 +32,25 @@
   }
 }
 
-.CreateBook {
+.CreateReview {
   background-color: #2c3e50;
   min-height: 100vh;
   color: white;
 }
 
-.ShowBookDetails {
+.ShowReviewDetails {
   background-color: #2c3e50;
   min-height: 100vh;
   color: white;
 }
 
-.UpdateBookInfo {
+.UpdateReviewInfo {
   background-color: #2c3e50;
   min-height: 100vh;
   color: white;
 }
 
-.ShowBookList {
+.ShowReviewList {
   background-color: #2c3e50;
   height: 100%;
   width: 100%;
@@ -60,7 +60,7 @@
 }
 
 
-/* BookList Styles */
+/* ReviewList Styles */
 .list {
   display: grid;
   margin: 20px 0 50px 0;

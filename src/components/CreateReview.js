@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 
 
-class CreateBook extends Component {
+class CreateReview extends Component {
   constructor() {
     super();
     this.state = {
@@ -34,7 +34,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('http://localhost:8082/api/books', data)
+      .post('http://localhost:8082/api/reviews', data)
       .then(res => {
         this.setState({
           title: '',
@@ -47,32 +47,32 @@ class CreateBook extends Component {
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in CreateBook!");
+        console.log("Error in CreateReview!");
       })
   };
 
   render() {
     return (
-      <div className="CreateBook">
+      <div className="CreateReview">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Book List
+                  Show Review List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Book</h1>
+              <h1 className="display-4 text-center">Add Review</h1>
               <p className="lead text-center">
-                  Create new book
+                  Create new review
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Title of the Book'
+                    placeholder='Title of the Review'
                     name='title'
                     className='form-control'
                     value={this.state.title}
@@ -106,7 +106,7 @@ class CreateBook extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Describe this book'
+                    placeholder='Describe this review'
                     name='description'
                     className='form-control'
                     value={this.state.description}
@@ -127,7 +127,7 @@ class CreateBook extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Publisher of this Book'
+                    placeholder='Publisher of this Review'
                     name='publisher'
                     className='form-control'
                     value={this.state.publisher}
@@ -148,4 +148,4 @@ class CreateBook extends Component {
   }
 }
 
-export default CreateBook;
+export default CreateReview;

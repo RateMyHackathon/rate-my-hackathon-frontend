@@ -2,55 +2,55 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import BookCard from './BookCard';
+import ReviewCard from './ReviewCard';
 
-class ShowBookList extends Component {
+class ShowReviewList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      reviews: []
     };
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/books')
+      .get('http://localhost:8082/api/reviews')
       .then(res => {
         this.setState({
-          books: res.data
+          reviews: res.data
         })
       })
       .catch(err =>{
-        console.log('Error from ShowBookList');
+        console.log('Error from ShowReviewList');
       })
   };
 
 
   render() {
-    const books = this.state.books;
-    console.log("PrintBook: " + books);
-    let bookList;
+    const reviews = this.state.reviews;
+    console.log("PrintReview: " + reviews);
+    let reviewList;
 
-    if(!books) {
-      bookList = "there is no book record!";
+    if(!reviews) {
+      reviewList = "there is no review record!";
     } else {
-      bookList = books.map((book, k) =>
-        <BookCard book={book} key={k} />
+      reviewList = reviews.map((review, k) =>
+        <ReviewCard review={review} key={k} />
       );
     }
 
     return (
-      <div className="ShowBookList">
+      <div className="ShowReviewList">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Books List</h2>
+              <h2 className="display-4 text-center">Reviews List</h2>
             </div>
 
             <div className="col-md-11">
-              <Link to="/create-book" className="btn btn-outline-warning float-right">
-                + Add New Book
+              <Link to="/create-review" className="btn btn-outline-warning float-right">
+                + Add New Review
               </Link>
               <br />
               <br />
@@ -60,7 +60,7 @@ class ShowBookList extends Component {
           </div>
 
           <div className="list">
-                {bookList}
+                {reviewList}
           </div>
         </div>
       </div>
@@ -68,4 +68,4 @@ class ShowBookList extends Component {
   }
 }
 
-export default ShowBookList;
+export default ShowReviewList;
