@@ -21,6 +21,7 @@ class CreateReview extends Component {
       .get('http://localhost:8082/api/hackathons/'+this.props.match.params.id)
       .then(res => {
         this.setState({
+          id: res.data.id,
           name: res.data.name,
           description: res.data.description,
           reviews: res.data.reviews
@@ -76,15 +77,15 @@ class CreateReview extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Hackathon List
+              <Link to={`/show-hackathon/${this.props.match.params.id}`} className="btn btn-outline-warning float-left">
+                  Go Back to Hackathon
               </Link>
             </div>
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Review</h1>
-              {/* <p className="lead text-center">
-                  Update Review
-              </p> */}
+              <p className="lead text-center">
+                  Add a review for {this.state.name}
+              </p>
             </div>
           </div>
 

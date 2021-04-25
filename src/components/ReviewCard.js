@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+// import '../App.css';
+
+import Card from 'react-bootstrap/Card';
 
 const ReviewCard = (props) => {
     const review = props.review;
 
     return(
-        
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">{ review.title }</h1>
-                <p class="col-md-8 fs-4"> { review.description } </p>
-                <p class="col-md-8 fs-4"> Rating: { review.rating } </p>
-            </div>
-
+        <Card bg={'dark'} style={{ width: '18rem' }}>
+            <Card.Header>{ review.title }</Card.Header>
+                <Card.Body>
+                    <Card.Title>{ review.rating }</Card.Title>
+                    <Card.Text>{ review.description }</Card.Text>
+                </Card.Body>
+        </Card>
     )
 };
 
