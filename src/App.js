@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import CreateReview from './components/CreateReview';
-import ShowReviewList from './components/ShowReviewList';
-import ShowReviewDetails from './components/ShowReviewDetails';
-import UpdateReviewInfo from './components/UpdateReviewInfo';
+import CreateHackathon from './components/CreateHackathon';
+import ShowHackathonList from './components/ShowHackathonList';
+import ShowHackathonDetails from './components/ShowHackathonDetails';
+import UpdateHackathonInfo from './components/UpdateHackathonInfo';
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route exact path='/' component={ShowReviewList} />
-          <Route path='/create-review' component={CreateReview} />
-          <Route path='/edit-review/:id' component={UpdateReviewInfo} />
-          <Route path='/show-review/:id' component={ShowReviewDetails} />
+          <Route exact path='/' component={ShowHackathonList} />
+          <Route path='/create-hackathon' component={CreateHackathon} />
+          <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} />
+          <Route path='/show-hackathon/:id' component={ShowHackathonDetails} />
         </div>
       </Router>
     );
