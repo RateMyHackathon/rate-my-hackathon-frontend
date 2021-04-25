@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import CreateHackathon from './components/CreateHackathon';
-import ShowHackathonList from './components/ShowHackathonList';
-import ShowHackathonDetails from './components/ShowHackathonDetails';
-import UpdateHackathonInfo from './components/UpdateHackathonInfo';
-import CreateReview from './components/CreateReview';
+import CreateHackathon from './components/pages/CreateHackathon';
+import ShowHackathonList from './components/pages/ShowHackathonList';
+import ShowHackathonDetails from './components/pages/ShowHackathonDetails';
+import UpdateHackathonInfo from './components/pages/UpdateHackathonInfo';
+import CreateReview from './components/pages/CreateReview';
+
 class App extends Component {
   render() {
     return (

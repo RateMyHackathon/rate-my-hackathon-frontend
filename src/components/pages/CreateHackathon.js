@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import axios from 'axios';
-
+import NavigationBar from '../NavigationBar'
 
 class CreateHackathon extends Component {
   constructor() {
@@ -11,6 +11,7 @@ class CreateHackathon extends Component {
       name: '',
       description: '',
       reviews: [],
+      img: ''
     };
   }
 
@@ -25,6 +26,7 @@ class CreateHackathon extends Component {
       name: this.state.name,
       description: this.state.description,
       reviews: this.state.reviews,
+      img: this.state.img
     };
 
     axios
@@ -34,6 +36,7 @@ class CreateHackathon extends Component {
           name: '',
           description: '',
           reviews: [],
+          img: ''
         })
         this.props.history.push('/');
       })
@@ -44,6 +47,8 @@ class CreateHackathon extends Component {
 
   render() {
     return (
+      <div>
+      <NavigationBar/>
       <div className="CreateHackathon">
         <div className="container">
           <div className="row">
@@ -56,7 +61,7 @@ class CreateHackathon extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Hackathon</h1>
               <p className="lead text-center">
-                  Create new hackathon
+                  Add a new hackathon to the database to start recieving reviews!
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
@@ -83,6 +88,34 @@ class CreateHackathon extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+                <br />
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Image'
+                    name='img'
+                    className='form-control'
+                    value={this.state.img}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                {/* <div className='form-group'>
+                  <div className="custom-file">
+                    <input
+                      type="file"
+                      accept=".png, .jpg, .jpeg"
+                      name="img"
+                      className="custom-file-input"
+                      value={this.state.img}
+                      onChange={this.onChange}
+                    />
+                    <label className="custom-file-label" htmlFor="inputGroupFile01">
+                      {this.state.img}
+                    </label>
+                  </div>
+                </div> */}
 
                 <input
                     type="submit"
@@ -92,6 +125,7 @@ class CreateHackathon extends Component {
           </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

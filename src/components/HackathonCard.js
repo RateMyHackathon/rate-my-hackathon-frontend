@@ -7,7 +7,7 @@ const HackathonCard = (props) => {
 
     return(
         <div className="card-container">
-            <img src="https://commapress.co.uk/books/the-book-of-cairo/cairo-provisional-v3/image%2Fspan3" alt="" />
+            <img src={ hackathon.img } alt="" />
             <div className="desc">
                 <h2>
                     <Link to={`/show-hackathon/${hackathon._id}`}>

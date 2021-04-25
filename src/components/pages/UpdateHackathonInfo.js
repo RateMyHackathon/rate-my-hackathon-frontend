@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css';
+import '../../App.css';
+import NavigationBar from '../NavigationBar';
 
 class UpdateHackathonInfo extends Component {
   constructor(props) {
@@ -56,6 +57,8 @@ class UpdateHackathonInfo extends Component {
 
   render() {
     return (
+      <div>
+      <NavigationBar />
       <div className="UpdateHackathonInfo">
         <div className="container">
           <div className="row">
@@ -105,6 +108,7 @@ class UpdateHackathonInfo extends Component {
           </div>
 
         </div>
+      </div>
       </div>
     );
   }

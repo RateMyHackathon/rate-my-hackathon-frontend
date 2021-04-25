@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import axios from 'axios';
-import UpdateHackathonInfo from './UpdateHackathonInfo';
-import ReviewCard from './ReviewCard'
+import ReviewCard from '../ReviewCard'
+import NavigationBar from '../NavigationBar'
+
 class showHackathonDetails extends Component {
   constructor(props) {
     super(props);
@@ -78,6 +79,8 @@ class showHackathonDetails extends Component {
     </div>
 
     return (
+      <div>
+      <NavigationBar />
       <div className="ShowHackathonDetails">
         <div className="container">
           <div className="row">
@@ -90,7 +93,7 @@ class showHackathonDetails extends Component {
             <br />
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">
-                { hackathon.name } Details
+                { hackathon.name }
               </h1>
               <hr /> <br />
             </div>
@@ -127,6 +130,7 @@ class showHackathonDetails extends Component {
           </Link>
 
         </div>
+      </div>
       </div>
     );
   }

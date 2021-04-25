@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css';
+import '../../App.css';
+import NavigationBar from '../NavigationBar'
+import ToggleButton from 'react-bootstrap/ToggleButton'
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 
 class CreateReview extends Component {
   constructor(props) {
@@ -72,6 +75,8 @@ class CreateReview extends Component {
 
   render() {
     return (
+      <div>
+      <NavigationBar/>
       <div className="CreateReview">
         <div className="container">
           <div className="row">
@@ -117,7 +122,7 @@ class CreateReview extends Component {
             </div>
 
             <div className='form-group'>
-            <label htmlFor="description">Rating</label>
+            {/* <label htmlFor="description">Rating</label>
               <input
                 type='text'
                 placeholder='Rating'
@@ -125,13 +130,19 @@ class CreateReview extends Component {
                 className='form-control'
                 value={this.state.reviewRating}
                 onChange={this.onChange}
-              />
+              /> */}
+              <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+              <ToggleButton value={1}>Radio 1 (pre-checked)</ToggleButton>
+              <ToggleButton value={2}>Radio 2</ToggleButton>
+              <ToggleButton value={3}>Radio 3</ToggleButton>
+              </ToggleButtonGroup>
             </div>
 
             <button type="submit" className="btn btn-outline-info btn-lg btn-block">Add Review</button>
             </form>
           </div>
         </div>
+      </div>
       </div>
     );
   }
