@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 import UpdateHackathonInfo from './UpdateHackathonInfo';
-
+import ReviewCard from './ReviewCard'
 class showHackathonDetails extends Component {
   constructor(props) {
     super(props);
@@ -42,16 +42,17 @@ class showHackathonDetails extends Component {
   render() {
 
     const hackathon = this.state.hackathon;
+    let reviewList;
+    if(!hackathon.reviews) {
+      reviewList = "There are no reviews!";
+    } else {
+      reviewList = hackathon.reviews.map((review, k) =>
+        <ReviewCard review={review} key={k} />
+      );
+    }
+
     let HackathonItem = <div>
       <table className="table table-hover table-dark">
-        {/* <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead> */}
         <tbody>
           <tr>
             <th scope="row">1</th>
@@ -110,9 +111,19 @@ class showHackathonDetails extends Component {
             </div>
 
           </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Hackathon</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Hackathon</button> */}
+
+          <h1 className="display-4 text-center">
+            Reviews
+          </h1>
+
+          <div className="list">
+            { reviewList }
+          </div>
+
+          
+          <Link to={`/add-review/${hackathon._id}`} className="btn btn-outline-warning btn-lg btn-block">
+            Add a Review
+          </Link>
 
         </div>
       </div>
