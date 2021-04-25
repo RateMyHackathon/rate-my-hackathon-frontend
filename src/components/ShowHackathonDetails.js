@@ -40,10 +40,11 @@ class showHackathonDetails extends Component {
 
 
   render() {
-
     const hackathon = this.state.hackathon;
+
+    // get list of reviews, if any
     let reviewList;
-    if(!hackathon.reviews) {
+    if(hackathon.reviews === undefined) {
       reviewList = "There are no reviews!";
     } else {
       reviewList = hackathon.reviews.map((review, k) =>

@@ -40,7 +40,7 @@ class UpdateHackathonInfo extends Component {
     const data = {
       name: this.state.name,
       description: this.state.description,
-      published_date: this.state.reviews
+      reviews: this.state.reviews
     };
 
     axios
