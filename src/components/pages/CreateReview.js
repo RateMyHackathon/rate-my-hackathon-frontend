@@ -15,8 +15,9 @@ class CreateReview extends Component {
       reviews: [],
       reviewTitle: '',
       reviewDescription: '',
-      reviewRating: ''
+      reviewRating: 3
     };
+    this.changeRating = this.changeRating.bind(this);
   }
 
   componentDidMount() {
@@ -52,10 +53,6 @@ class CreateReview extends Component {
       rating: reviewRating
     };
 
-    // this.setState({
-    //     buyItems: [...this.state.buyItems, obj]
-    // });
-
     const data = {
       name: this.state.name,
       description: this.state.description,
@@ -72,6 +69,11 @@ class CreateReview extends Component {
       })
   };
 
+  changeRating(val) {
+    this.setState({
+        reviewRating: val
+    });
+  }
 
   render() {
     return (
@@ -82,15 +84,20 @@ class CreateReview extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to={`/show-hackathon/${this.props.match.params.id}`} className="btn btn-outline-warning float-left">
-                  Go Back to Hackathon
+              <Link to={`/show-hackathon/${this.props.match.params.id}`} className="btn btn-outline-secondary float-left">
+                  Back to {this.state.name}
               </Link>
             </div>
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Review</h1>
               <p className="lead text-center">
-                  Add a review for {this.state.name}
+                  Write a review for {this.state.name}! Remember:
               </p>
+              <ul><ul><ul><ul>
+                <li>Please be respectful.</li>
+                <li>Only provide constructive critism.</li>
+                <li>Any hate comments will be taken down.</li>
+              </ul></ul></ul></ul>
             </div>
           </div>
 
@@ -120,25 +127,29 @@ class CreateReview extends Component {
                 onChange={this.onChange}
               />
             </div>
+            <br />
 
             <div className='form-group'>
-            {/* <label htmlFor="description">Rating</label>
-              <input
-                type='text'
-                placeholder='Rating'
-                name='reviewRating'
-                className='form-control'
-                value={this.state.reviewRating}
-                onChange={this.onChange}
-              /> */}
-              <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-              <ToggleButton value={1}>Radio 1 (pre-checked)</ToggleButton>
-              <ToggleButton value={2}>Radio 2</ToggleButton>
-              <ToggleButton value={3}>Radio 3</ToggleButton>
+            <label htmlFor="reviewRating">Rating</label>
+            
+              <br></br>
+              <ToggleButtonGroup 
+                type="radio" 
+                name="reviewRating" 
+                onChange={this.changeRating}
+                defaultValue={3}
+              >
+                <ToggleButton value={1}>1</ToggleButton>
+                <ToggleButton value={2}>2</ToggleButton>
+                <ToggleButton value={3}>3</ToggleButton>
+                <ToggleButton value={4}>4</ToggleButton>
+                <ToggleButton value={5}>5</ToggleButton>
               </ToggleButtonGroup>
             </div>
 
-            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Add Review</button>
+            <br />
+
+            <button type="submit" className="btn btn-outline-primary btn-lg btn-block">Add Review</button>
             </form>
           </div>
         </div>
