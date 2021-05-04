@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../../App.css';
-import NavigationBar from '../NavigationBar'
+import '../App.css';
+import NavigationBar from '../components/NavigationBar'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 
@@ -62,7 +62,7 @@ class CreateReview extends Component {
     axios
       .put('http://localhost:8082/api/hackathons/'+this.props.match.params.id, data)
       .then(res => {
-        this.props.history.push('/show-hackathon/'+this.props.match.params.id);
+        this.props.history.push('/hackathon/'+this.props.match.params.id);
       })
       .catch(err => {
         console.log("Error in CreateReview!");
@@ -79,30 +79,31 @@ class CreateReview extends Component {
     return (
       <div>
       <NavigationBar/>
-      <div className="CreateReview">
+      <div className="CreateHackathon">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to={`/show-hackathon/${this.props.match.params.id}`} className="btn btn-outline-secondary float-left">
+              <Link to={`/hackathon/${this.props.match.params.id}`} className="btn btn-outline-warning float-left">
                   Back to {this.state.name}
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Review</h1>
+              <h1 className="display-4 text-center">Add a Review</h1>
               <p className="lead text-center">
                   Write a review for {this.state.name}! Remember:
               </p>
-              <ul><ul><ul><ul>
+              <ul><ul><ul><ul><ul>
                 <li>Please be respectful.</li>
                 <li>Only provide constructive critism.</li>
                 <li>Any hate comments will be taken down.</li>
-              </ul></ul></ul></ul>
+              </ul></ul></ul></ul></ul>
             </div>
           </div>
 
           <div className="col-md-8 m-auto">
           <form noValidate onSubmit={this.onSubmit}>
+            
             <div className='form-group'>
               <label htmlFor="title">Title</label>
               <input
@@ -149,7 +150,7 @@ class CreateReview extends Component {
 
             <br />
 
-            <button type="submit" className="btn btn-outline-primary btn-lg btn-block">Add Review</button>
+            <button type="submit" className="btn btn-primary btn-lg btn-block">Submit Review</button>
             </form>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../../App.css';
-import NavigationBar from '../NavigationBar';
+import '../App.css';
+import NavigationBar from '../components/NavigationBar';
 
 class UpdateHackathonInfo extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class UpdateHackathonInfo extends Component {
     axios
       .put('http://localhost:8082/api/hackathons/'+this.props.match.params.id, data)
       .then(res => {
-        this.props.history.push('/show-hackathon/'+this.props.match.params.id);
+        this.props.history.push('/hackathon/'+this.props.match.params.id);
       })
       .catch(err => {
         console.log("Error in UpdateHackathonInfo!");

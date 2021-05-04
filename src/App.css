@@ -1,64 +1,48 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* .App { */
+  /* background-image: linear-gradient(225deg, #364D7D 0%, #A68AC2 100%); */
+  /* background: #fff; */
+/* } */
 
 .CreateHackathon {
-  background-color: #2c3e50;
+  /* background-color: #364D7D; */
   min-height: 100vh;
-  color: white;
+  /* color: white; */
 }
 
 .ShowHackathonDetails {
-  background-color: #2c3e50;
+  /* background-color: #364D7D; */
   min-height: 100vh;
-  color: white;
+  /* color: white; */
 }
 
 .UpdateHackathonInfo {
-  background-color: #2c3e50;
+  /* background-color: #364D7D; */
   min-height: 100vh;
-  color: white;
+  /* color: white; */
 }
 
 .ShowHackathonList {
-  background-color: #2c3e50;
   height: 100%;
   width: 100%;
   min-height: 100vh;
   min-width: 100px;
-  color: white;
+  /* color: white; */
 }
 
+.ReviewCard {
+  color: black;
+  margin: 20px 0 50px 0;
+}
+
+.HackathonCard {
+  color: black;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* HackathonList Styles */
 .list {

@@ -1,17 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { 
+    Nav, 
+    Navbar, 
+    // Form, 
+    // FormControl, 
+    // Button 
+} from 'react-bootstrap';
 
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import logo from "../assets/RMH.png";
 
 const NavigationBar = () => {
     return(
-        <Navbar>
-            <Navbar.Brand href="/">Rate My Hackathon</Navbar.Brand>
-                <Nav className="ml-auto">
-                <Nav.Link href="/">View Hackathons</Nav.Link>
-                <Nav.Link href="/create-hackathon">Add a Hackathon</Nav.Link>
-                </Nav>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">
+                <img
+                    src={logo}
+                    className="d-inline-block align-top"
+                    height="50"
+                    alt="RMH Logo"
+                />
+            </Navbar.Brand>
+            <Nav className="mr-auto" style={{fontSize: 20}}>
+                <Nav.Link href="/">All Hackathons</Nav.Link>
+                <Nav.Link href="/new-hackathon">Add a Hackathon</Nav.Link>
+            </Nav>
+            {/* <Button variant="outline-light">Sign Up</Button> */}
+            {/* <Form inline>
+            <FormControl type="text" placeholder="Search hackathons" className="mr-sm-2" />
+            <Button variant="outline-light">🔎</Button>
+            </Form> */}
         </Navbar>
     )
 };

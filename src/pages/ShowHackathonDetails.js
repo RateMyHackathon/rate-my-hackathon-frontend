@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.css';
+import '../App.css';
 import axios from 'axios';
-import ReviewCard from '../ReviewCard'
-import NavigationBar from '../NavigationBar'
+import ReviewCard from '../components/ReviewCard'
+import NavigationBar from '../components/NavigationBar'
 
 class showHackathonDetails extends Component {
   constructor(props) {
@@ -53,30 +53,30 @@ class showHackathonDetails extends Component {
       );
     }
 
-    let HackathonItem = <div>
-      <table className="table table-hover table-dark">
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Name</td>
-            <td>{ hackathon.name }</td>
-          </tr>
+    // let HackathonItem = <div>
+    //   <table className="table table-hover table-dark">
+    //     <tbody>
+    //       <tr>
+    //         <th scope="row">1</th>
+    //         <td>Name</td>
+    //         <td>{ hackathon.name }</td>
+    //       </tr>
       
-          <tr>
-            <th scope="row">2</th>
-            <td>Description</td>
-            <td>{ hackathon.description }</td>
-          </tr>
+    //       <tr>
+    //         <th scope="row">2</th>
+    //         <td>Description</td>
+    //         <td>{ hackathon.description }</td>
+    //       </tr>
 
-          <tr>
-            <th scope="row">3</th>
-            <td>Last Updated</td>
-            <td>{ hackathon.date_updated }</td>
-          </tr>
+    //       <tr>
+    //         <th scope="row">3</th>
+    //         <td>Last Updated</td>
+    //         <td>{ hackathon.date_updated }</td>
+    //       </tr>
 
-        </tbody>
-      </table>
-    </div>
+    //     </tbody>
+    //   </table>
+    // </div>
 
     return (
       <div>
@@ -98,9 +98,10 @@ class showHackathonDetails extends Component {
               <hr /> <br />
             </div>
           </div>
-          <div>
-            { HackathonItem }
-          </div>
+
+          <p className="text-center">
+                { hackathon.description }
+          </p>
 
           <div className="row">
             <div className="col-md-6">
@@ -120,12 +121,12 @@ class showHackathonDetails extends Component {
             Reviews
           </h1>
 
-          <div className="list">
+          <div>
             { reviewList }
           </div>
 
           
-          <Link to={`/add-review/${hackathon._id}`} className="btn btn-outline-warning btn-lg btn-block">
+          <Link to={`/new-review/${hackathon._id}`} className="btn btn-outline-warning btn-lg btn-block">
             Add a Review
           </Link>
 
