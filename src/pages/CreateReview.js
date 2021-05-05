@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 import NavigationBar from '../components/NavigationBar'
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
+// import ToggleButton from 'react-bootstrap/ToggleButton'
+// import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 
 class CreateReview extends Component {
   constructor(props) {
@@ -134,7 +134,7 @@ class CreateReview extends Component {
             <label htmlFor="reviewRating">Rating</label>
             
               <br></br>
-              <ToggleButtonGroup 
+              {/* <ToggleButtonGroup 
                 type="radio" 
                 name="reviewRating" 
                 onChange={this.changeRating}
@@ -145,7 +145,7 @@ class CreateReview extends Component {
                 <ToggleButton value={3}>3</ToggleButton>
                 <ToggleButton value={4}>4</ToggleButton>
                 <ToggleButton value={5}>5</ToggleButton>
-              </ToggleButtonGroup>
+              </ToggleButtonGroup> */}
             </div>
 
             <br />

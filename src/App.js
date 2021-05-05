@@ -16,10 +16,10 @@ class App extends Component {
         <div className='App'>
           {/* <Route exact path='/' component={ShowHackathonList} /> */}
           <Route exact path='/' component={Home} />
-          <Route path='/new-hackathon' component={CreateHackathon} />
+          {/* <Route path='/new-hackathon' component={CreateHackathon} />
           <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} />
           <Route path='/hackathon/:id' component={ShowHackathonDetails} />
-          <Route path='/new-review/:id' component={CreateReview} />
+          <Route path='/new-review/:id' component={CreateReview} /> */}
         </div>
       </Router>
     );

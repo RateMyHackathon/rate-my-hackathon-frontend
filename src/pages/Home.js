@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 import NavigationBar from '../components/NavigationBar'
-import {
-    Jumbotron,
-    Button,
-    Container,
-    Row,
-    Col
- } from 'react-bootstrap'
+// import {
+//     Jumbotron,
+//     Button,
+//     Container,
+//     Row,
+//     Col
+//  } from 'react-bootstrap'
 
  import teamImg from '../assets/team.svg'
 import shareImg from '../assets/share.svg'
@@ -54,61 +54,55 @@ class Home extends Component {
     return (
         <div>
           <NavigationBar/>
-          <main class="px-3">
-          <h1>Cover your page.</h1>
-          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-          <p class="lead">
-            Learn More
-          </p>
-        </main>
 
-          <Jumbotron>
-          <div className='center'>
-              <div style={{minHeight: 500}}>
-              <h1>Hello, world!</h1>
-              <p>
-                  This is a simple hero unit, a simple jumbotron-style component for calling
-                  extra attention to featured content or information.
-              </p>
-              <p>
-                  <Button variant="primary">Learn more</Button>
-              </p>
-              </div>
-              </div>
-          </Jumbotron>
+          <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+            <div className="col-md-5 p-lg-5 mx-auto my-5">
+              <h1 className="display-4 fw-normal">Rate My Hackathon</h1>
+              <p className="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+            </div>
+            <div className="product-device shadow-sm d-none d-md-block"></div>
+            <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+          </div>
 
-          <Container>
-            <div className='center'>
-              <Row>
-                  <Col>
+          <div className="container py-5" id="featured-3">
+            <div className="row g-5 py-5">
+              <div className="feature col-md-4">
+                <div className="feature-icon">
                     <img
                       src={teamImg}
-                      // className="d-inline-block align-top"
+                      width="100%" 
+                      height="300"
                       alt="Team"
                     />
-                    This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-                  </Col>
-
-                  <Col>
-                    <img
-                      src={shareImg}
-                      // className="d-inline-block align-top"
-                      alt="Share"
-                    />
-                    This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-                  </Col>
-
-                  <Col>
-                    <img
-                      src={upvoteImg}
-                      // className="d-inline-block align-top"
-                      alt="Upvote"
-                    />
-                    This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-                  </Col>
-              </Row>
+                </div>
+                <h2 className="text-center">Find hackathons</h2>
+              </div>
+              <div className="feature col-md-4">
+                <div className="feature-icon">
+                  <img
+                    src={shareImg}
+                    width="100%" 
+                    height="300"
+                    alt="Share"
+                  />
+                </div>
+                <h2 className="text-center">Share your experiences anonymously</h2>
+              </div>
+              <div className="feature col-md-4">
+                <div className="feature-icon">
+                  <img
+                    src={upvoteImg}
+                    width="100%" 
+                    height="300"
+                    alt="Upvote"
+                  />
+                </div>
+                <div className="center">
+                <h2 className="text-center">Support others' reviews</h2>
+                </div>
+              </div>
             </div>
-          </Container>
+          </div>
         </div>
     );
   }
