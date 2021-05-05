@@ -1,67 +1,63 @@
-import React, { Component } from 'react';
-import '../App.css';
-import axios from 'axios';
+import React, { Component } from "react";
+import "../App.css";
+import axios from "axios";
 // import { Link } from 'react-router-dom';
-import HackathonCard from '../components/HackathonCard';
-import NavigationBar from '../components/NavigationBar'
+import HackathonCard from "../components/HackathonCard";
+import Header from "../components/Header";
 
 class ShowHackathonList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hackathons: []
+      hackathons: [],
     };
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/hackathons')
-      .then(res => {
+      .get("http://localhost:8082/api/hackathons")
+      .then((res) => {
         this.setState({
-          hackathons: res.data
-        })
+          hackathons: res.data,
+        });
       })
-      .catch(err =>{
-        console.log('Error from ShowHackathonList');
-      })
-  };
-
+      .catch((err) => {
+        console.log("Error from ShowHackathonList");
+      });
+  }
 
   render() {
     const hackathons = this.state.hackathons;
     console.log("PrintHackathon: " + hackathons);
     let hackathonList;
 
-    if(!hackathons) {
+    if (!hackathons) {
       hackathonList = "there is no hackathon record!";
     } else {
-      hackathonList = hackathons.map((hackathon, k) =>
+      hackathonList = hackathons.map((hackathon, k) => (
         <HackathonCard hackathon={hackathon} key={k} />
-      );
+      ));
     }
 
     return (
       <div>
-      <NavigationBar/>
-      <div className="ShowHackathonList">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
+        <Header />
+        <div className="ShowHackathonList">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <br />
+                <h2 className="display-4 text-center">All Hackathons</h2>
+              </div>
+
               <br />
-              <h2 className="display-4 text-center">All Hackathons</h2>
+              <br />
+              <hr />
             </div>
 
-            <br/>
-            <br/>
-            <hr/>
-
-          </div>
-
-          <div className="list">
-                { hackathonList }
+            <div className="list">{hackathonList}</div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

@@ -1,56 +1,55 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../App.css';
-import axios from 'axios';
-import ReviewCard from '../components/ReviewCard'
-import NavigationBar from '../components/NavigationBar'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
+import axios from "axios";
+import ReviewCard from "../components/ReviewCard";
+import Header from "../components/Header";
 
 class showHackathonDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hackathon: {}
+      hackathon: {},
     };
   }
 
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/hackathons/'+this.props.match.params.id)
-      .then(res => {
+      .get("http://localhost:8082/api/hackathons/" + this.props.match.params.id)
+      .then((res) => {
         // console.log("Print-showHackathonDetails-API-response: " + res.data);
         this.setState({
-          hackathon: res.data
-        })
+          hackathon: res.data,
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error from ShowHackathonDetails");
-      })
-  };
+      });
+  }
 
-  onDeleteClick (id) {
+  onDeleteClick(id) {
     axios
-      .delete('http://localhost:8082/api/hackathons/'+id)
-      .then(res => {
+      .delete("http://localhost:8082/api/hackathons/" + id)
+      .then((res) => {
         this.props.history.push("/");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error form ShowHackathonDetails_deleteClick");
-      })
-  };
-
+      });
+  }
 
   render() {
     const hackathon = this.state.hackathon;
 
     // get list of reviews, if any
     let reviewList;
-    if(hackathon.reviews === undefined) {
+    if (hackathon.reviews === undefined) {
       reviewList = "There are no reviews!";
     } else {
-      reviewList = hackathon.reviews.map((review, k) =>
+      reviewList = hackathon.reviews.map((review, k) => (
         <ReviewCard review={review} key={k} />
-      );
+      ));
     }
 
     // let HackathonItem = <div>
@@ -61,7 +60,7 @@ class showHackathonDetails extends Component {
     //         <td>Name</td>
     //         <td>{ hackathon.name }</td>
     //       </tr>
-      
+
     //       <tr>
     //         <th scope="row">2</th>
     //         <td>Description</td>
@@ -80,58 +79,60 @@ class showHackathonDetails extends Component {
 
     return (
       <div>
-      <NavigationBar />
-      <div className="ShowHackathonDetails">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-10 m-auto">
-              <br /> <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
+        <Header />
+        <div className="ShowHackathonDetails">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-10 m-auto">
+                <br /> <br />
+                <Link to="/" className="btn btn-outline-warning float-left">
                   Show Hackathon List
-              </Link>
-            </div>
-            <br />
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">
-                { hackathon.name }
-              </h1>
-              <hr /> <br />
-            </div>
-          </div>
-
-          <p className="text-center">
-                { hackathon.description }
-          </p>
-
-          <div className="row">
-            <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,hackathon._id)}>Delete Hackathon</button><br />
-            </div>
-
-            <div className="col-md-6">
-              <Link to={`/edit-hackathon/${hackathon._id}`} className="btn btn-outline-info btn-lg btn-block">
-                    Edit Hackathon
-              </Link>
+                </Link>
+              </div>
               <br />
+              <div className="col-md-8 m-auto">
+                <h1 className="display-4 text-center">{hackathon.name}</h1>
+                <hr /> <br />
+              </div>
             </div>
 
+            <p className="text-center">{hackathon.description}</p>
+
+            <div className="row">
+              <div className="col-md-6">
+                <button
+                  type="button"
+                  className="btn btn-outline-danger btn-lg btn-block"
+                  onClick={this.onDeleteClick.bind(this, hackathon._id)}
+                >
+                  Delete Hackathon
+                </button>
+                <br />
+              </div>
+
+              <div className="col-md-6">
+                <Link
+                  to={`/edit-hackathon/${hackathon._id}`}
+                  className="btn btn-outline-info btn-lg btn-block"
+                >
+                  Edit Hackathon
+                </Link>
+                <br />
+              </div>
+            </div>
+
+            <h1 className="display-4 text-center">Reviews</h1>
+
+            <div>{reviewList}</div>
+
+            <Link
+              to={`/new-review/${hackathon._id}`}
+              className="btn btn-outline-warning btn-lg btn-block"
+            >
+              Add a Review
+            </Link>
           </div>
-
-          <h1 className="display-4 text-center">
-            Reviews
-          </h1>
-
-          <div>
-            { reviewList }
-          </div>
-
-          
-          <Link to={`/new-review/${hackathon._id}`} className="btn btn-outline-warning btn-lg btn-block">
-            Add a Review
-          </Link>
-
         </div>
-      </div>
       </div>
     );
   }
