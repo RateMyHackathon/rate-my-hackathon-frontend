@@ -4,8 +4,9 @@ import "../App.css";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import HomeJumbo from "../components/HomeJumbo";
+import HomeHeader from "../components/HomeHeader";
 import HomeCards from "../components/HomeCards";
+
 class Home extends Component {
   constructor() {
     super();
@@ -44,10 +45,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <HomeJumbo />
+        <Button />
+        <HomeHeader />
         <HomeCards />
-        <Footer />
       </div>
     );
   }
