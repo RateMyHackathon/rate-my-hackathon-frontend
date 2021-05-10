@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
-import Header from "../components/Header";
 // import ToggleButton from 'react-bootstrap/ToggleButton'
 // import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 
@@ -81,7 +80,6 @@ class CreateReview extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div className="CreateHackathon">
           <div className="container">
             <div className="row">

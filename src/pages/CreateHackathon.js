@@ -2,8 +2,6 @@ import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 // import "../App.css";
 import axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 // import MultiSelect from "react-multi-select-component";
 
 class CreateHackathon extends Component {
@@ -71,7 +69,6 @@ class CreateHackathon extends Component {
 
     return (
       <div>
-        <Header />
 
         <div className="container">
           <main>
@@ -168,9 +165,7 @@ class CreateHackathon extends Component {
             </div>
           </main>
         </div>
-
-        <Footer />
-      </div>
+              </div>
     );
   }
 }

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
-import Header from "../components/Header";
 
 class showHackathonDetails extends Component {
   constructor(props) {
@@ -79,7 +78,6 @@ class showHackathonDetails extends Component {
 
     return (
       <div>
-        <Header />
         <div className="ShowHackathonDetails">
           <div className="container">
             <div className="row">

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
-import Header from "../components/Header";
 
 class UpdateHackathonInfo extends Component {
   constructor(props) {
@@ -60,7 +59,6 @@ class UpdateHackathonInfo extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div className="UpdateHackathonInfo">
           <div className="container">
             <div className="row">

@@ -4,13 +4,12 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 
-// import CreateHackathon from "./pages/CreateHackathon";
+import CreateHackathon from "./pages/CreateHackathon";
 import ShowHackathonList from "./pages/ShowHackathonList";
 import ShowHackathonDetails from "./pages/ShowHackathonDetails";
 import UpdateHackathonInfo from "./pages/UpdateHackathonInfo";
 import CreateReview from "./pages/CreateReview";
 import Home from "./components/Home/Home";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -18,16 +17,18 @@ class App extends Component {
     return (
       <div>
         <NavBar />
+
         <Router>
           <div>
-            {/* <Route exact path='/' component={ShowHackathonList} /> */}
             <Route exact path="/" component={Home} />
-            {/* <Route path='/new-hackathon' component={CreateHackathon} /> */}
+            <Route exact path='/all-hackathons' component={ShowHackathonList} />
+            <Route path='/new-hackathon' component={CreateHackathon} />
             {/* <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} />
           <Route path='/hackathon/:id' component={ShowHackathonDetails} />
           <Route path='/new-review/:id' component={CreateReview} /> */}
           </div>
         </Router>
+
         <Footer />
       </div>
     );
