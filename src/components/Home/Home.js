@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
 import axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import HomeHeader from "../components/HomeHeader";
-import HomeCards from "../components/HomeCards";
+import HomeHeader from "./HomeHeader";
+import HomeCards from "./HomeCards";
 
 class Home extends Component {
   constructor() {
@@ -45,7 +42,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Button />
         <HomeHeader />
         <HomeCards />
       </div>

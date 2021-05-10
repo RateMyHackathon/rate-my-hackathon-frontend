@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import { Container, Image, Menu } from "semantic-ui-react";
+import { Container, Image, Menu, Grid } from "semantic-ui-react";
+import logo from "../assets/RMH.png";
 
 function NavBar() {
   return (
-    <Menu>
-      <Container>
-        <Menu.Item as="a" header>
-          <Image size="small" src="/assets/RMH.png" />
-        </Menu.Item>
-
-        <Menu.Menu position="right">
-          <Menu.Item as="a" name="home" href="/">
-            Home
-          </Menu.Item>
-
-          <Menu.Item as="a" name="login" href="/">
-            Login
-          </Menu.Item>
-        </Menu.Menu>
-      </Container>
-    </Menu>
+    <Grid columns={1} doubling>
+      <Grid.Column>
+        <Menu
+          items={[
+            { key: '1', name: 'link-1', content: 'Home', href: "/"},
+            { key: '2', name: 'link-2', content: 'Search', href: "/" },
+            { key: '3', name: 'link-3', content: 'Add Hackathon', href: "/" },
+          ]}
+          pointing
+          secondary
+        />
+      </Grid.Column>
+</Grid>
   );
 }
 
