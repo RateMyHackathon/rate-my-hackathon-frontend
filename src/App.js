@@ -12,12 +12,16 @@ import CreateReview from "./pages/CreateReview";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 
+import {
+  Container,
+} from "semantic-ui-react";
+
 class App extends Component {
   render() {
     return (
       <div>
+        <Container></Container>
         <NavBar />
-
         <Router>
           <div>
             <Route exact path="/" component={Home} />
@@ -28,7 +32,6 @@ class App extends Component {
           <Route path='/new-review/:id' component={CreateReview} /> */}
           </div>
         </Router>
-
         <Footer />
       </div>
     );

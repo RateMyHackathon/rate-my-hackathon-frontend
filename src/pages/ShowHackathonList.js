@@ -3,6 +3,7 @@ import "../App.css";
 import axios from "axios";
 // import { Link } from 'react-router-dom';
 import HackathonCard from "../components/HackathonCard";
+import { Container, Header } from "semantic-ui-react";
 
 class ShowHackathonList extends Component {
   constructor(props) {
@@ -40,23 +41,21 @@ class ShowHackathonList extends Component {
 
     return (
       <div>
-        <div className="ShowHackathonList">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <br />
-                <h2 className="display-4 text-center">All Hackathons</h2>
-              </div>
-
-              <br />
-              <br />
-              <hr />
-            </div>
-
-            <div className="list">{hackathonList}</div>
-          </div>
+      <Container textAlign="center">
+        <Header 
+        as="h1"
+        style={{ padding: "1.5em 0em 1.5em" }}>
+          All Hackathons
+          <Header.Subheader>
+            View all hackathons in our database. Don't see yours? 
+            <a href="/new-hackathon"> Add it!</a>
+          </Header.Subheader>
+        </Header>
+        </Container>
+        <Container>
+        {hackathonList}
+        </Container>
         </div>
-      </div>
     );
   }
 }

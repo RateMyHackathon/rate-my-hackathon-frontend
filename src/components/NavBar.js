@@ -3,12 +3,9 @@ import logo from "../assets/RMH.png";
 import {
   Button,
   Container,
-  Dropdown,
   Grid,
-  Header,
   Icon,
   Menu,
-  Message,
   Image
 } from "semantic-ui-react";
 
@@ -40,7 +37,7 @@ class NavBar extends Component {
               <Menu.Item header as="a" href="/">
                 <Image src={logo} size="tiny"></Image>
               </Menu.Item>
-              <Menu.Item active as="a" href="/">
+              <Menu.Item as="a" href="/">
                 Home
               </Menu.Item>
               <Menu.Item as="a" href="/all-hackathons">
