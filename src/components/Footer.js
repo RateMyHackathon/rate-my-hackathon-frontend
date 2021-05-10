@@ -1,24 +1,33 @@
 import React from "react";
-import { Container, Segment } from "semantic-ui-react";
+import { Container, Divider, Image } from "semantic-ui-react";
 
 const Footer = () => {
   return (
-    <Segment>
+    <div>
+      <Divider hidden />
       <footer>
-        <Container textAlign="center">
+        <Container>
           <p>
-            <a href="https://github.com/RateMyHackathon">Rate My Hackathon</a>,
-            2021. Made with 💙 by&nbsp;
-            <a href="https://github.com/lumamoto" className="px-1 text-muted">
-              Lacey Umamoto
-            </a>
-            .
+            <span className="left">
+              Rate My Hackathon, 2021. &#8201; Made with 💙 by
+              <a href="https://github.com/lumamoto" className="px-1 text-muted">
+                {" "}
+                Lacey Umamoto
+              </a>
+              .
+            </span>
+
+            <span className="right">
+              <a href="https://github.com/RateMyHackathon">
+                <i className="github icon"></i>
+                Source Code
+              </a>
+            </span>
           </p>
         </Container>
       </footer>
-    </Segment>
+    </div>
   );
 };
 
 export default Footer;
- 

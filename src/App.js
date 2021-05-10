@@ -19,8 +19,7 @@ import {
 class App extends Component {
   render() {
     return (
-      <div>
-        <Container></Container>
+      <div className="App">
         <NavBar />
         <Router>
           <div>
