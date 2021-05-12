@@ -1,8 +1,16 @@
+
+// TODO: Add url and themes to backend code
+
+// TODO: Fix themes dropdown menu. Unable to select anything.
+// Due to value={}.
+
+// TODO: Check if able to add to db
+
 import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
-import { Header, Container, Form, Button } from "semantic-ui-react";
+import { Header, Container, Form, Button, Divider } from "semantic-ui-react";
 
 class CreateHackathon extends Component {
   constructor() {
@@ -11,7 +19,8 @@ class CreateHackathon extends Component {
       name: "",
       description: "",
       url: "",
-      themes: []
+      themes: [],
+      reviews: []
     };
   }
 
@@ -26,7 +35,8 @@ class CreateHackathon extends Component {
       name: this.state.name,
       description: this.state.description,
       url: this.state.url,
-      themes: this.state.themes
+      themes: this.state.themes,
+      reviews: []
     };
 
     axios
@@ -36,7 +46,8 @@ class CreateHackathon extends Component {
           name: "",
           description: "",
           url: "",
-          themes: []
+          themes: [],
+          reviews: []
         });
         this.props.history.push("/");
       })
@@ -122,16 +133,14 @@ class CreateHackathon extends Component {
               placeholder="Themes"
               options={themeOptions}
               name="themes"
-              value={this.state.themes}
+              // value={this.state.themes}
               onChange={this.onChange}
             />
-
-            <Button type="submit">Add Hackathon</Button>
-
+            
+            <Divider hidden />
+            <Button fluid primary type="submit">Add Hackathon</Button>
           </Form>
         </Container>
-
-        
       </div>
     );
   }
