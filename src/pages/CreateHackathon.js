@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
-// import "../App.css";
+import "../App.css";
 import axios from "axios";
-// import MultiSelect from "react-multi-select-component";
+import { Header, Container, Form, Button } from "semantic-ui-react";
 
 class CreateHackathon extends Component {
   constructor() {
@@ -10,7 +10,8 @@ class CreateHackathon extends Component {
     this.state = {
       name: "",
       description: "",
-      reviews: [],
+      url: "",
+      themes: []
     };
   }
 
@@ -24,7 +25,8 @@ class CreateHackathon extends Component {
     const data = {
       name: this.state.name,
       description: this.state.description,
-      reviews: this.state.reviews,
+      url: this.state.url,
+      themes: this.state.themes
     };
 
     axios
@@ -33,7 +35,8 @@ class CreateHackathon extends Component {
         this.setState({
           name: "",
           description: "",
-          reviews: [],
+          url: "",
+          themes: []
         });
         this.props.history.push("/");
       })
@@ -43,129 +46,93 @@ class CreateHackathon extends Component {
   };
 
   render() {
-    const options = [
-      { label: "AR/VR", value: "ar_vr" },
-      { label: "Beginner Friendly", value: "beginner_friendly" },
-      { label: "Blockchain", value: "blockchain" },
-      { label: "Communication", value: "communication" },
-      { label: "Cybersecurity", value: "cybersecurity" },
-      { label: "Design", value: "design" },
-      { label: "DevOps", value: "devops" },
-      { label: "E-commerce", value: "e_commerce" },
-      { label: "Education", value: "education" },
-      { label: "Enterprise", value: "enterprise" },
-      { label: "Finance", value: "finance" },
-      { label: "Gaming", value: "gaming" },
-      { label: "Health", value: "health" },
-      { label: "Internet of Things (IoT)", value: "iot" },
-      { label: "Machine Learning / AI", value: "ml_ai" },
-      { label: "Mobile", value: "mobile" },
-      { label: "Art/Music", value: "art_music" },
-      { label: "Open Ended", value: "open_ended" },
-      { label: "Productivity", value: "productivity" },
-      { label: "Social Good", value: "social_good" },
-      { label: "Web", value: "web" },
+    const themeOptions = [
+      { key: "ar", text: "AR/VR", value: "ar" },
+      { key: "beginner", text: "Beginner Friendly", value: "beginner" },
+      { key: "blockchain", text: "Blockchain", value: "blockchain" },
+      { key: "communication", text: "Communication", value: "communication" },
+      { key: "cybersecurity", text: "Cybersecurity", value: "cybersecurity" },
+      { key: "design", text: "Design", value: "design" },
+      { key: "devops", text: "DevOps", value: "devops" },
+      { key: "ecommerce", text: "E-commerce", value: "ecommerce" },
+      { key: "education", text: "Education", value: "education" },
+      { key: "enterprise", text: "Enterprise", value: "enterprise" },
+      { key: "finance", text: "Finance", value: "finance" },
+      { key: "gaming", text: "Gaming", value: "gaming" },
+      { key: "health", text: "Health", value: "health" },
+      { key: "iot", text: "Internet of Things (IoT)", value: "iot" },
+      { key: "ml", text: "Machine Learning / AI", value: "ml" },
+      { key: "mobile", text: "Mobile", value: "mobile" },
+      { key: "art", text: "Art/Music", value: "art" },
+      { key: "open", text: "Open Ended", value: "open" },
+      { key: "productivity", text: "Productivity", value: "productivity" },
+      { key: "good", text: "Social Good", value: "good" },
+      { key: "web", text: "Web", value: "web" },
     ];
 
     return (
       <div>
+        <Container textAlign="center">
+          <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+            Add a Hackathon
+            <Header.Subheader>
+              Add a new hackathon to our database to start recieving reviews.
+            </Header.Subheader>
+          </Header>
+        </Container>
 
-        <div className="container">
-          <main>
-            <div className="py-5 text-center">
-              <h2>Add a Hackathon</h2>
-              <p className="lead">
-                Add a new hackathon to our database to start recieving reviews.
-              </p>
-            </div>
+        <Container>
+          <Form>
+            <Header as="h3">Basic Info</Header>
+          
+            <Form.Input
+              fluid
+              required
+              label="Hackathon name"
+              placeholder="Hackathon name"
+              name="name"
+              value={this.state.name}
+              onChange={this.onChange}
+            />
+            <Form.TextArea
+              fluid
+              required
+              label="Hackathon description"
+              placeholder="Tell us more about this hackathon..."
+              name="description"
+              value={this.state.description}
+              onChange={this.onChange}
+            />
 
-            <div className="row g-5">
-              <div className="col-md-7 col-lg">
-                <h4 className="mb-3">Basic info</h4>
-                <form
-                  className="needs-validation"
-                  noValidate
-                  onSubmit={this.onSubmit}
-                >
-                  <div className="row g-3">
-                    <div className="col-12">
-                      <label htmlFor="hackathonName" className="form-label">
-                        Hackathon name
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.onChange}
-                        required
-                      />
+            <Header as="h3">Additional Info</Header>
+            <Form.Input
+              fluid
+              label="Website URL"
+              placeholder="https://www.ratemyhackathon.online"
+              name="url"
+              value={this.state.url}
+              onChange={this.onChange}
+            />
 
-                      <div className="invalid-feedback">
-                        Valid hackathon name is required.
-                      </div>
-                    </div>
+            <Form.Select
+              fluid
+              multiple
+              search
+              label="Themes"
+              placeholder="Themes"
+              options={themeOptions}
+              name="themes"
+              value={this.state.themes}
+              onChange={this.onChange}
+            />
 
-                    <div className="col-12">
-                      <label htmlFor="description" className="form-label">
-                        Hackathon description
-                      </label>
+            <Button type="submit">Add Hackathon</Button>
 
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="description"
-                        value={this.state.description}
-                        onChange={this.onChange}
-                        required
-                      />
+          </Form>
+        </Container>
 
-                      <div className="invalid-feedback">
-                        Please enter a few words about this hackathon.
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr className="my-4" />
-
-                  <h4 className="mb-3">Additional info</h4>
-
-                  <div className="row g-3">
-                    <div className="col-12">
-                      <label for="cc-name" className="form-label">
-                        Website URL
-                        <span className="text-muted"> (Optional)</span>
-                      </label>
-                      <input type="text" className="form-control" id="url" />
-                    </div>
-
-                    <div className="col-12">
-                      <label for="cc-name" className="form-label">
-                        Theme tags
-                        <span className="text-muted"> (Optional)</span>
-                      </label>
-                      {/* <MultiSelect
-                        options={options}
-                        labelledBy="Select"
-                        hasSelectAll={false}
-                      /> */}
-                    </div>
-                  </div>
-
-                  <hr className="my-4" />
-
-                  <button
-                    className="w-100 btn btn-primary btn-lg"
-                    type="submit"
-                  >
-                    Add Hackathon
-                  </button>
-                </form>
-              </div>
-            </div>
-          </main>
-        </div>
-              </div>
+        
+      </div>
     );
   }
 }

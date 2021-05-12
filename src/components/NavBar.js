@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/RMH_black.png";
-import {
-  Button,
-  Container,
-  Grid,
-  Icon,
-  Menu,
-  Image
-} from "semantic-ui-react";
+import { Button, Container, Grid, Icon, Menu, Image } from "semantic-ui-react";
 
 class NavBar extends Component {
   state = {
@@ -54,7 +47,6 @@ class NavBar extends Component {
                 </Menu.Item>
                 <Menu.Item as="a">Fixed top</Menu.Item>
               </Menu.Menu> */}
-
             </Container>
           </Menu>
         </Grid>
@@ -63,7 +55,7 @@ class NavBar extends Component {
         <Grid padded className="mobile only">
           <Menu borderless fluid size="huge">
             <Menu.Item header as="a" href="/">
-            <Image src={logo} size="tiny"></Image>
+              <Image src={logo} size="tiny"></Image>
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>

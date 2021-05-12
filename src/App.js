@@ -26,7 +26,6 @@ class App extends Component {
             <Route path="/new-hackathon" component={CreateHackathon} />
             <Route path="/hackathon/:id" component={ShowHackathonDetails} />
             <Route path='/new-review/:id' component={CreateReview} />
-
             {/* <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} /> */}
           </div>
         </Router>

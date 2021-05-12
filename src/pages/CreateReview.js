@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
-// import ToggleButton from 'react-bootstrap/ToggleButton'
-// import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 
 class CreateReview extends Component {
   constructor(props) {
