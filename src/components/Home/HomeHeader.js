@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  Container,
-  Header,
-  Segment,
-} from "semantic-ui-react";
-import HomeSearch from "./HomeSearch"
+import { Container, Header, Segment } from "semantic-ui-react";
+import HomeSearch from "./HomeSearch";
 
 const HomeHeader = () => {
   return (
@@ -20,8 +16,10 @@ const HomeHeader = () => {
           content="Rate My Hackathon"
           inverted
           style={{
-            fontSize: "4em",
+            fontSize: "3.5em",
             fontWeight: "normal",
+            marginBottom: 0,
+            marginTop: "3em",
           }}
         />
         <Header
@@ -31,6 +29,7 @@ const HomeHeader = () => {
           style={{
             fontSize: "1.7em",
             fontWeight: "normal",
+            marginTop: "1.5em",
             marginBottom: "1.5em",
           }}
         />

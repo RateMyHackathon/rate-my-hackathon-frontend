@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../assets/RMH.png";
+import logo from "../assets/RMH_black.png";
 import {
   Button,
   Container,

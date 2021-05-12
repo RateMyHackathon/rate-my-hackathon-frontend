@@ -5,11 +5,12 @@ const Footer = () => {
   return (
     <div>
       <Divider hidden />
+      <Divider hidden />
       <footer>
         <Container>
           <p>
             <span className="left">
-              Rate My Hackathon, 2021. &#8201; Made with 💙 by
+              Rate My Hackathon, 2021. &#8201; Made with 💖by
               <a href="https://github.com/lumamoto" className="px-1 text-muted">
                 {" "}
                 Lacey Umamoto

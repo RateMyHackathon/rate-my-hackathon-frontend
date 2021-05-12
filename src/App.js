@@ -12,9 +12,7 @@ import CreateReview from "./pages/CreateReview";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 
-import {
-  Container,
-} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   render() {
@@ -24,11 +22,12 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path='/all-hackathons' component={ShowHackathonList} />
-            <Route path='/new-hackathon' component={CreateHackathon} />
-            {/* <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} />
-          <Route path='/hackathon/:id' component={ShowHackathonDetails} />
-          <Route path='/new-review/:id' component={CreateReview} /> */}
+            <Route exact path="/all-hackathons" component={ShowHackathonList} />
+            <Route path="/new-hackathon" component={CreateHackathon} />
+            <Route path="/hackathon/:id" component={ShowHackathonDetails} />
+            <Route path='/new-review/:id' component={CreateReview} />
+
+            {/* <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} /> */}
           </div>
         </Router>
         <Footer />
