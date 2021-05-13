@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../App.css";
+import "../../App.css";
 
-class CreateReview extends Component {
+class NewReview extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +29,7 @@ class CreateReview extends Component {
         });
       })
       .catch((err) => {
-        console.log("Error from CreateReview");
+        console.log("Error from NewReview");
       });
   }
 
@@ -65,7 +65,7 @@ class CreateReview extends Component {
         this.props.history.push("/hackathon/" + this.props.match.params.id);
       })
       .catch((err) => {
-        console.log("Error in CreateReview!");
+        console.log("Error in NewReview!");
       });
   };
 
@@ -174,4 +174,4 @@ class CreateReview extends Component {
   }
 }
 
-export default CreateReview;
+export default NewReview;

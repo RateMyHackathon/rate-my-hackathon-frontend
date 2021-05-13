@@ -4,15 +4,13 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 
-import NewHackathon from "./pages/NewHackathon";
-import ShowHackathonList from "./pages/ShowHackathonList";
-import ShowHackathonDetails from "./pages/ShowHackathonDetails";
-import UpdateHackathonInfo from "./pages/UpdateHackathonInfo";
-import CreateReview from "./pages/CreateReview";
+import NewHackathon from "./components/NewHackathon/NewHackathon";
+import AllHackathons from "./components/AllHackathons/AllHackathons";
+import ViewHackathon from "./components/ViewHackathon/ViewHackathon";
+// import UpdateHackathon from "./pages/UpdateHackathon";
+import NewReview from "./components/NewReview/NewReview";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
-
-import { Container } from "semantic-ui-react";
 
 class App extends Component {
   render() {
@@ -22,11 +20,11 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path="/all-hackathons" component={ShowHackathonList} />
+            <Route exact path="/all-hackathons" component={AllHackathons} />
             <Route path="/new-hackathon" component={NewHackathon} />
-            <Route path="/hackathon/:id" component={ShowHackathonDetails} />
-            <Route path='/new-review/:id' component={CreateReview} />
-            {/* <Route path='/edit-hackathon/:id' component={UpdateHackathonInfo} /> */}
+            <Route path="/hackathon/:id" component={ViewHackathon} />
+            <Route path='/new-review/:id' component={NewReview} />
+            {/* <Route path='/edit-hackathon/:id' component={UpdateHackathon} /> */}
           </div>
         </Router>
         <Footer />

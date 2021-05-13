@@ -1,6 +1,6 @@
 import React from "react";
-import "../App.css";
-import { Card, Item, Button } from "semantic-ui-react";
+import "../../App.css";
+import { Card } from "semantic-ui-react";
 
 const ReviewCard = (props) => {
   const review = props.review;

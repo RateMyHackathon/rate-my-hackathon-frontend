@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
-class UpdateHackathonInfo extends Component {
+class UpdateHackathon extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +26,7 @@ class UpdateHackathonInfo extends Component {
         });
       })
       .catch((err) => {
-        console.log("Error from UpdateHackathonInfo");
+        console.log("Error from UpdateHackathon");
       });
   }
 
@@ -52,14 +52,14 @@ class UpdateHackathonInfo extends Component {
         this.props.history.push("/hackathon/" + this.props.match.params.id);
       })
       .catch((err) => {
-        console.log("Error in UpdateHackathonInfo!");
+        console.log("Error in UpdateHackathon!");
       });
   };
 
   render() {
     return (
       <div>
-        <div className="UpdateHackathonInfo">
+        <div className="UpdateHackathon">
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
@@ -116,4 +116,4 @@ class UpdateHackathonInfo extends Component {
   }
 }
 
-export default UpdateHackathonInfo;
+export default UpdateHackathon;

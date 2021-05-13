@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "../App.css";
+import "../../App.css";
 import axios from "axios";
 // import { Link } from 'react-router-dom';
-import HackathonCard from "../components/HackathonCard";
+import HackathonCard from "./HackathonCard";
 import { Container, Header } from "semantic-ui-react";
 
-class ShowHackathonList extends Component {
+class AllHackathons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class ShowHackathonList extends Component {
         });
       })
       .catch((err) => {
-        console.log("Error from ShowHackathonList");
+        console.log("Error from AllHackathons");
       });
   }
 
@@ -60,4 +60,4 @@ class ShowHackathonList extends Component {
   }
 }
 
-export default ShowHackathonList;
+export default AllHackathons;
