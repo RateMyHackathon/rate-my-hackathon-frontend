@@ -1,18 +1,10 @@
-
-// TODO: Add url and themes to backend code
-
-// TODO: Fix themes dropdown menu. Unable to select anything.
-// Due to value={}.
-
-// TODO: Check if able to add to db
-
 import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 import { Header, Container, Form, Button, Divider } from "semantic-ui-react";
 
-class CreateHackathon extends Component {
+class NewHackathon extends Component {
   constructor() {
     super();
     this.state = {
@@ -27,6 +19,12 @@ class CreateHackathon extends Component {
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  selectedItem = (e, data) => {
+    this.setState({
+      themes: data.value
+    });
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +50,7 @@ class CreateHackathon extends Component {
         this.props.history.push("/");
       })
       .catch((err) => {
-        console.log("Error in CreateHackathon!");
+        console.log("Error in NewHackathon!");
       });
   };
 
@@ -93,13 +91,13 @@ class CreateHackathon extends Component {
         </Container>
 
         <Container>
-          <Form>
+          <Form onSubmit={this.onSubmit}>
             <Header as="h3">Basic Info</Header>
           
             <Form.Input
               fluid
               required
-              label="Hackathon name"
+              label="Name"
               placeholder="Hackathon name"
               name="name"
               value={this.state.name}
@@ -108,7 +106,7 @@ class CreateHackathon extends Component {
             <Form.TextArea
               fluid
               required
-              label="Hackathon description"
+              label="Description"
               placeholder="Tell us more about this hackathon..."
               name="description"
               value={this.state.description}
@@ -130,11 +128,11 @@ class CreateHackathon extends Component {
               multiple
               search
               label="Themes"
-              placeholder="Themes"
+              placeholder="Hackathon themes"
               options={themeOptions}
               name="themes"
-              // value={this.state.themes}
-              onChange={this.onChange}
+              value={this.state.themes}
+              onChange={this.selectedItem}
             />
             
             <Divider hidden />
@@ -146,4 +144,4 @@ class CreateHackathon extends Component {
   }
 }
 
-export default CreateHackathon;
+export default NewHackathon;

@@ -35,7 +35,7 @@ class Home extends Component {
     //     this.props.history.push('/');
     //   })
     //   .catch(err => {
-    //     console.log("Error in CreateHackathon!");
+    //     console.log("Error in NewHackathon!");
     //   })
   };
 
