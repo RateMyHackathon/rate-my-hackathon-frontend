@@ -69,6 +69,7 @@ class ViewHackathon extends Component {
     // calculate avg rating
     let avgRating;
     let numReviews;
+    console.log(hackathon.reviews)
     if (hackathon.reviews) {
       var ratings = [];
       const reviews = hackathon.reviews;
@@ -77,6 +78,9 @@ class ViewHackathon extends Component {
         ratings.push(reviews[i].rating);
       }
       avgRating = calculateAvgRating(ratings);
+      if (isNaN(avgRating)) {
+        avgRating = 0;
+      }
     } else {
       avgRating = 0;
       numReviews = 0;

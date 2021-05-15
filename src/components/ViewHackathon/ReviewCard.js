@@ -16,7 +16,7 @@ const ReviewCard = (props) => {
   if (!tags) {
     tagList = "No tags!";
   } else {
-    tagList = tags.map((tag, k) => <Label>{tag}</Label>);
+    tagList = tags.map((tag) => <Label>{tag}</Label>);
   }
 
   return (
@@ -31,22 +31,20 @@ const ReviewCard = (props) => {
         <Card.Description>{review.description}</Card.Description>
         <br />
         <Card.Meta>
-          <span className="left">
+          {/* <span className="left">
             {tagList}
-            {/* <Label>Tag 1</Label>
-            <Label>Tag 2</Label>
-            <Label>Tag 3</Label> */}
-          </span>
-          <span className="right">{dateString}</span>
+          </span> */}
+          <span className="left">{dateString}</span>
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>
         <span className="left">
-          <i class="arrow up icon"></i> 0 &emsp;
-          <i class="arrow down icon"></i> 0
+          {tagList}
         </span>
         <span className="right">
-          <i class="flag outline icon"></i>
+          {/* <i class="flag outline icon"></i> */}
+          <i class="arrow up icon"></i> {review.numUp} &emsp;
+          <i class="arrow down icon"></i> {review.numDown}
         </span>
       </Card.Content>
     </Card>

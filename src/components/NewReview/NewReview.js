@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../App.css";
 import { Header, Container, Form, Button, Divider } from "semantic-ui-react";
@@ -57,6 +56,8 @@ class NewReview extends Component {
       description: reviewDescription,
       rating: reviewRating,
       tags: reviewTags,
+      numUp: 0,
+      numDown: 0
     };
 
     const data = {

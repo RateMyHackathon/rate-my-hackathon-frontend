@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Label } from "semantic-ui-react";
 
 function calculateAvgRating(ratings) {
   var sum = 0;
@@ -14,23 +14,53 @@ function calculateAvgRating(ratings) {
 const HackathonCard = (props) => {
   const hackathon = props.hackathon;
 
-  var ratings = [];
-  const reviews = hackathon.reviews;
-  const numReviews = reviews.length;
-  for (var i = 0; i < reviews.length; i++) {
-    ratings.push(reviews[i].rating);
+  // calculate avg rating
+  let avgRating;
+  if (hackathon.reviews.length > 0) {
+    var ratings = [];
+    const reviews = hackathon.reviews;
+    for (var i = 0; i < reviews.length; i++) {
+      ratings.push(reviews[i].rating);
+    }
+    avgRating = calculateAvgRating(ratings);
+  } else {
+    avgRating = 0;
   }
 
-  const avgRating = calculateAvgRating(ratings);
+  const themes = hackathon.themes;
+
+  let themeList;
+
+  if (!themes) {
+    themeList = "No themes!";
+  } else {
+    themeList = themes.map((theme) => <Label>{theme}</Label>);
+  }
 
   return (
     <Card centered fluid href={`/hackathon/${hackathon._id}`}>
-      <Card.Content header={hackathon.name}/>
-      <Card.Content description={hackathon.description} />
-      <Card.Content extra>
-      {avgRating} / 5 based on {numReviews} reviews
+      <Card.Content>
+        <Card.Header>
+          <h1>
+            <span className="left">{hackathon.name}</span>
+            <span className="right">{avgRating} / 5</span>
+          </h1>
+        </Card.Header>
+        <Card.Description>{hackathon.description}</Card.Description>
+        <br />
+        <Card.Meta>
+        {themeList}
+        </Card.Meta>
       </Card.Content>
     </Card>
+
+    // <Card centered fluid href={`/hackathon/${hackathon._id}`}>
+    //   <Card.Content header={hackathon.name}/>
+    //   <Card.Content description={hackathon.description} />
+    //   <Card.Content extra>
+    //   {avgRating} / 5 based on {numReviews} reviews
+    //   </Card.Content>
+    // </Card>
   );
 };
 
