@@ -11,7 +11,6 @@ class NewReview extends Component {
       name: "",
       description: "",
       reviews: [],
-      reviewTitle: "",
       reviewDescription: "",
       reviewRating: 3,
       reviewTags: [],
@@ -50,13 +49,11 @@ class NewReview extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const reviewTitle = this.state.reviewTitle;
     const reviewDescription = this.state.reviewDescription;
     const reviewRating = this.state.reviewRating;
     const reviewTags = this.state.reviewTags;
 
     const obj = {
-      title: reviewTitle,
       description: reviewDescription,
       rating: reviewRating,
       tags: reviewTags,
