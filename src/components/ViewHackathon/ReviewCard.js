@@ -9,15 +9,15 @@ const ReviewCard = (props) => {
   dateString = dateString.substr(dateString.indexOf(" ") + 1); // remove day of week from date
 
   const tags = review.tags;
-    let tagList;
+  // console.log('tags = ' + tags);
 
-    if (!tags) {
-      tagList = "No tags!";
-    } else {
-      tagList = tags.map((tag, k) => (
-        <Label hackathon={tag} key={k} />
-      ));
-    }
+  let tagList;
+
+  if (!tags) {
+    tagList = "No tags!";
+  } else {
+    tagList = tags.map((tag, k) => <Label>{tag}</Label>);
+  }
 
   return (
     <Card centered fluid>
@@ -37,9 +37,7 @@ const ReviewCard = (props) => {
             <Label>Tag 2</Label>
             <Label>Tag 3</Label> */}
           </span>
-          <span className="right">
-            {dateString}
-          </span>
+          <span className="right">{dateString}</span>
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>

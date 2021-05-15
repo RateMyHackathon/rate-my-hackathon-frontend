@@ -89,20 +89,20 @@ class NewReview extends Component {
 
   render() {
     const tagOptions = [
-      { key: "competitive", text: "Competitive", value: "competitive" },
-      { key: "diverse", text: "Diverse", value: "diverse" },
-      { key: "fun", text: "Fun", value: "fun" },
-      { key: "organized", text: "Well-organized", value: "organized" },
-      { key: "relaxed", text: "Relaxed", value: "relaxed" },
-      { key: "stressful", text: "Stressful", value: "stressful" },
-      { key: "judging", text: "Intense Judging", value: "judging" },
-      { key: "mentors", text: "Amazing Mentors", value: "mentors" },
-      { key: "panels", text: "Interesting Panels", value: "panels" },
-      { key: "prizes", text: "Big Prizes", value: "prizes" },
-      { key: "recruiters", text: "Great Sponsors/Recruiters", value: "recruiters" },
-      { key: "resources", text: "Helpful Resources", value: "resources" },
-      { key: "swag", text: "Free Swag", value: "swag" },
-      { key: "workshops", text: "Informative Workshops", value: "workshops" },
+      { key: "competitive", text: "Competitive", value: "Competitive" },
+      { key: "diverse", text: "Diverse", value: "Diverse" },
+      { key: "fun", text: "Fun", value: "Fun" },
+      { key: "organized", text: "Well-organized", value: "Well-organized" },
+      { key: "relaxed", text: "Relaxed", value: "Relaxed" },
+      { key: "stressful", text: "Stressful", value: "Stressful" },
+      { key: "judging", text: "Intense Judging", value: "Intense Judging" },
+      { key: "mentors", text: "Amazing Mentors", value: "Amazing Mentors" },
+      { key: "panels", text: "Interesting Panels", value: "Interesting Panels" },
+      { key: "prizes", text: "Big Prizes", value: "Big Prizes" },
+      { key: "recruiters", text: "Great Sponsors/Recruiters", value: "Great Sponsors/Recruiters" },
+      { key: "resources", text: "Helpful Resources", value: "Helpful Resources" },
+      { key: "swag", text: "Free Swag", value: "Free Swag" },
+      { key: "workshops", text: "Informative Workshops", value: "Informative Workshops" },
     ];
 
     return (
