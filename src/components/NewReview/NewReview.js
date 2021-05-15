@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../App.css";
+import { Header, Container, Form, Button, Divider } from "semantic-ui-react";
 
 class NewReview extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class NewReview extends Component {
       reviewTitle: "",
       reviewDescription: "",
       reviewRating: 3,
+      reviewTags: [],
     };
     this.changeRating = this.changeRating.bind(this);
   }
@@ -37,17 +39,27 @@ class NewReview extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // selectedItem = (e, data) => {
+  //   this.setState({
+  //     reviewTags: data.value
+  //   });
+  // }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
   onSubmit = (e) => {
     e.preventDefault();
 
     const reviewTitle = this.state.reviewTitle;
     const reviewDescription = this.state.reviewDescription;
     const reviewRating = this.state.reviewRating;
+    const reviewTags = this.state.reviewTags;
 
     const obj = {
       title: reviewTitle,
       description: reviewDescription,
       rating: reviewRating,
+      tags: reviewTags,
     };
 
     const data = {
@@ -76,99 +88,94 @@ class NewReview extends Component {
   }
 
   render() {
+    const tagOptions = [
+      { key: "competitive", text: "Competitive", value: "competitive" },
+      { key: "diverse", text: "Diverse", value: "diverse" },
+      { key: "fun", text: "Fun", value: "fun" },
+      { key: "organized", text: "Well-organized", value: "organized" },
+      { key: "relaxed", text: "Relaxed", value: "relaxed" },
+      { key: "stressful", text: "Stressful", value: "stressful" },
+      { key: "judging", text: "Intense Judging", value: "judging" },
+      { key: "mentors", text: "Amazing Mentors", value: "mentors" },
+      { key: "panels", text: "Interesting Panels", value: "panels" },
+      { key: "prizes", text: "Big Prizes", value: "prizes" },
+      { key: "recruiters", text: "Great Sponsors/Recruiters", value: "recruiters" },
+      { key: "resources", text: "Helpful Resources", value: "resources" },
+      { key: "swag", text: "Free Swag", value: "swag" },
+      { key: "workshops", text: "Informative Workshops", value: "workshops" },
+    ];
+
     return (
       <div>
-        <div className="NewHackathon">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-8 m-auto">
-                <br />
-                <Link
-                  to={`/hackathon/${this.props.match.params.id}`}
-                  className="btn btn-outline-warning float-left"
-                >
-                  Back to {this.state.name}
-                </Link>
-              </div>
-              <div className="col-md-8 m-auto">
-                <h1 className="display-4 text-center">Add a Review</h1>
-                <p className="lead text-center">
-                  Write a review for {this.state.name}! Remember:
-                </p>
-                <ul>
-                  <ul>
-                    <ul>
-                      <ul>
-                        <ul>
-                          <li>Please be respectful.</li>
-                          <li>Only provide constructive critism.</li>
-                          <li>Any hate comments will be taken down.</li>
-                        </ul>
-                      </ul>
-                    </ul>
-                  </ul>
-                </ul>
-              </div>
-            </div>
+        <Container textAlign="center">
+          <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+            Add a Review - {this.state.name}
+            <Header.Subheader>
+              Before submitting your review, please remember:
+              <br />
+              <br />
+              Be honest. This review should be based on <u>your</u> own
+              experience.
+              <br />
+              Be respectful. Do not include profanity or derogatory names in
+              your review.
+              <br />
+              When criticizing, be sure that it is <u>constructive</u>, not
+              destructive.
+              <br />
+              <br />
+              RMH reserves the right to remove any reviews that violate any of
+              these terms.
+            </Header.Subheader>
+          </Header>
+        </Container>
 
-            <div className="col-md-8 m-auto">
-              <form noValidate onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <label htmlFor="title">Title</label>
-                  <input
-                    type="text"
-                    placeholder="Title of Review"
-                    name="reviewTitle"
-                    className="form-control"
-                    value={this.state.reviewTitle}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <br />
+        <Container>
+          <Form onSubmit={this.onSubmit}>
+            <Header as="h3">Basic Info</Header>
 
-                <div className="form-group">
-                  <label htmlFor="description">Description</label>
-                  <input
-                    type="text"
-                    placeholder="Description of Review"
-                    name="reviewDescription"
-                    className="form-control"
-                    value={this.state.reviewDescription}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <br />
+            <Form.Input
+              fluid
+              required
+              label={`Rating: ${this.state.reviewRating} / 5`}
+              name="reviewRating"
+              value={this.state.reviewRating}
+              onChange={this.handleChange}
+              min={1}
+              max={5}
+              step={1}
+              type="range"
+            />
 
-                <div className="form-group">
-                  <label htmlFor="reviewRating">Rating</label>
+            <Form.TextArea
+              fluid
+              required
+              label="Experience Details"
+              placeholder="Tell us more about your experience..."
+              name="reviewDescription"
+              value={this.state.reviewDescription}
+              onChange={this.onChange}
+            />
 
-                  <br></br>
-                  {/* <ToggleButtonGroup 
-                type="radio" 
-                name="reviewRating" 
-                onChange={this.changeRating}
-                defaultValue={3}
-              >
-                <ToggleButton value={1}>1</ToggleButton>
-                <ToggleButton value={2}>2</ToggleButton>
-                <ToggleButton value={3}>3</ToggleButton>
-                <ToggleButton value={4}>4</ToggleButton>
-                <ToggleButton value={5}>5</ToggleButton>
-              </ToggleButtonGroup> */}
-                </div>
+            <Header as="h3">Additional Info</Header>
+            <Form.Select
+              fluid
+              multiple
+              search
+              label="Tags that would best describe this hackathon"
+              placeholder="Tags"
+              options={tagOptions}
+              name="reviewTags"
+              value={this.state.reviewTags}
+              onChange={this.handleChange}
+            />
 
-                <br />
-
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg btn-block"
-                >
-                  Submit Review
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+            <Divider hidden />
+            <Button fluid primary type="submit">
+              Add Review
+            </Button>
+          </Form>
+        </Container>
       </div>
     );
   }
