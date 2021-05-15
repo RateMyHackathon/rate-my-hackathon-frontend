@@ -5,6 +5,15 @@ import axios from "axios";
 import ReviewCard from "./ReviewCard";
 import { Header, Container, Button } from "semantic-ui-react";
 
+function calculateAvgRating(ratings) {
+  var sum = 0;
+  for (var i = 0; i < ratings.length; i++) {
+    sum += ratings[i];
+  }
+  var avg = sum / ratings.length;
+  avg = Math.round(avg * 10) / 10; // round to nearest decimal
+  return avg;
+}
 class ViewHackathon extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +66,22 @@ class ViewHackathon extends Component {
       ));
     }
 
+    // calculate avg rating
+    let avgRating;
+    let numReviews;
+    if (hackathon.reviews) {
+      var ratings = [];
+      const reviews = hackathon.reviews;
+      numReviews = reviews.length;
+      for (var i = 0; i < reviews.length; i++) {
+        ratings.push(reviews[i].rating);
+      }
+      avgRating = calculateAvgRating(ratings);
+    } else {
+      avgRating = 0;
+      numReviews = 0;
+    }
+
     return (
       <div>
         <Container textAlign="center">
@@ -64,10 +89,13 @@ class ViewHackathon extends Component {
             {hackathon.name}
             <Header.Subheader>{hackathon.description}</Header.Subheader>
             <Link to={`/new-review/${hackathon._id}`}>
-              <br/>
-            <Button primary>Add a Review</Button>
-          </Link>
+              <br />
+              <Button primary>Add a Review</Button>
+            </Link>
           </Header>
+          Average Rating: {avgRating} / 5
+          <br/>
+          based on {numReviews} reviews
         </Container>
 
         <Container>
