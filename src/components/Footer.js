@@ -20,7 +20,7 @@ const Footer = () => {
             </span>
 
             <span className="right">
-              <a href="https://github.com/RateMyHackathon">
+              <a href="https://github.com/lumamoto/rate-my-hackathon-frontend">
                 <i className="github icon"></i>
                 Source Code
               </a>

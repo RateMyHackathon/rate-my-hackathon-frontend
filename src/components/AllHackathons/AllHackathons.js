@@ -28,7 +28,6 @@ class AllHackathons extends Component {
 
   render() {
     const hackathons = this.state.hackathons;
-    console.log("PrintHackathon: " + hackathons);
     let hackathonList;
 
     if (!hackathons) {
