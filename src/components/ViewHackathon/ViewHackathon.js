@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
 import ReviewCard from "./ReviewCard";
-import { Header, Container, Button } from "semantic-ui-react";
+import { Header, Container, Button, Grid, Message, Divider } from "semantic-ui-react";
 
 function calculateAvgRating(ratings) {
   var sum = 0;
@@ -58,8 +58,28 @@ class ViewHackathon extends Component {
 
     // get list of reviews, if any
     let reviewList;
-    if (hackathon.reviews === undefined) {
-      reviewList = "There are no reviews!";
+    if (hackathon.reviews === undefined || hackathon.reviews.length < 1) {
+      reviewList = (
+        <div>
+        <Message>
+          <Grid textAlign="center">
+            <Grid.Row>
+              <Header as="h2">No Reviews</Header>
+            </Grid.Row>
+            <Grid.Row>
+              <p>
+                This hackathon doesn't have any reviews. Why not be the first to{" "}
+                <Link to={`/new-review/${hackathon._id}`}>add one</Link>?
+              </p>
+            </Grid.Row>
+          </Grid>
+        </Message>
+        <Divider hidden/>
+        <Divider hidden/>
+        <Divider hidden/>
+        <Divider hidden/>
+        </div>
+      );
     } else {
       reviewList = hackathon.reviews.map((review, k) => (
         <ReviewCard review={review} key={k} />
@@ -67,9 +87,8 @@ class ViewHackathon extends Component {
     }
 
     // calculate avg rating
-    let avgRating;
-    let numReviews;
-    console.log(hackathon.reviews)
+    let avgRating, ratingString, numReviews;
+    console.log(hackathon.reviews);
     if (hackathon.reviews) {
       var ratings = [];
       const reviews = hackathon.reviews;
@@ -80,30 +99,48 @@ class ViewHackathon extends Component {
       avgRating = calculateAvgRating(ratings);
       if (isNaN(avgRating)) {
         avgRating = 0;
+        ratingString = "No Rating";
+      } else {
+        ratingString = avgRating + " / 5";
       }
     } else {
       avgRating = 0;
       numReviews = 0;
+      ratingString = "No Rating";
     }
 
     return (
-      <div>
-        <Container textAlign="center">
-          <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
-            {hackathon.name}
-            <Header.Subheader>{hackathon.description}</Header.Subheader>
-            <Link to={`/new-review/${hackathon._id}`}>
-              <br />
-              <Button primary>Add a Review</Button>
-            </Link>
-          </Header>
-          Average Rating: {avgRating} / 5
-          <br/>
-          based on {numReviews} reviews
-        </Container>
-
+      <div className="content">
         <Container>
-          <Header as="h3">Reviews</Header>
+          <Grid>
+            <Grid.Column width={12}>
+              <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+                {hackathon.name}
+                <Header.Subheader>
+                  {hackathon.description}
+                  {/* <Link to={hackathon.url}>Hackathon Website</Link> */}
+                  <br />
+                  <br />
+                </Header.Subheader>
+                
+                <Link to={`/new-review/${hackathon._id}`}>
+                  <Button primary>Add a Review</Button>
+                </Link>
+                {/* <Link to={"/"}>
+                <Button>Suggest Changes</Button>
+              </Link> */}
+              </Header>
+            </Grid.Column>
+            <Grid.Column textAlign="right" width={4}>
+              <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+                {ratingString}
+                <Header.Subheader>{numReviews} Reviews</Header.Subheader>
+              </Header>
+            </Grid.Column>
+          </Grid>
+        </Container>
+        <Container>
+          <Header as="h2">Reviews</Header>
           {reviewList}
         </Container>
       </div>

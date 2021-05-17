@@ -15,18 +15,22 @@ import Footer from "./components/Footer";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <NavBar />
+
+        <div className="body">
         <Router>
           <div>
             <Route exact path="/" component={Home} />
             <Route exact path="/all-hackathons" component={AllHackathons} />
             <Route path="/new-hackathon" component={NewHackathon} />
             <Route path="/hackathon/:id" component={ViewHackathon} />
-            <Route path='/new-review/:id' component={NewReview} />
+            <Route path="/new-review/:id" component={NewReview} />
             {/* <Route path='/edit-hackathon/:id' component={UpdateHackathon} /> */}
           </div>
         </Router>
+        </div>
+
         <Footer />
       </div>
     );

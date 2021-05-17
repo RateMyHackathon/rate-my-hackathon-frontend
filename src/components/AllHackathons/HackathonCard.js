@@ -14,8 +14,8 @@ function calculateAvgRating(ratings) {
 const HackathonCard = (props) => {
   const hackathon = props.hackathon;
 
-  // calculate avg rating
-  let avgRating;
+  // get avg rating
+  let avgRating, ratingString;
   if (hackathon.reviews.length > 0) {
     var ratings = [];
     const reviews = hackathon.reviews;
@@ -23,8 +23,9 @@ const HackathonCard = (props) => {
       ratings.push(reviews[i].rating);
     }
     avgRating = calculateAvgRating(ratings);
+    ratingString = avgRating + " / 5";
   } else {
-    avgRating = 0;
+    ratingString = "No Rating";
   }
 
   const themes = hackathon.themes;
@@ -43,7 +44,7 @@ const HackathonCard = (props) => {
         <Card.Header>
           <h1>
             <span className="left">{hackathon.name}</span>
-            <span className="right">{avgRating} / 5</span>
+            <span className="right">{ratingString}</span>
           </h1>
         </Card.Header>
         <Card.Description>{hackathon.description}</Card.Description>
