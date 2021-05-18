@@ -5,7 +5,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 
 import NewHackathon from "./components/NewHackathon/NewHackathon";
-import AllHackathons from "./components/AllHackathons/AllHackathons";
+import SearchHackathons from "./components/SearchHackathons/SearchHackathons";
 import ViewHackathon from "./components/ViewHackathon/ViewHackathon";
 // import UpdateHackathon from "./pages/UpdateHackathon";
 import NewReview from "./components/NewReview/NewReview";
@@ -22,7 +22,7 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path="/all-hackathons" component={AllHackathons} />
+            <Route exact path="/search-hackathons" component={SearchHackathons} />
             <Route path="/new-hackathon" component={NewHackathon} />
             <Route path="/hackathon/:id" component={ViewHackathon} />
             <Route path="/new-review/:id" component={NewReview} />

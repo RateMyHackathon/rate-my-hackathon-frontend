@@ -4,8 +4,9 @@ import axios from "axios";
 // import { Link } from 'react-router-dom';
 import HackathonCard from "./HackathonCard";
 import { Container, Header } from "semantic-ui-react";
+import Search from "../Search"
 
-class AllHackathons extends Component {
+class SearchHackathons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,7 @@ class AllHackathons extends Component {
         });
       })
       .catch((err) => {
-        console.log("Error from AllHackathons");
+        console.log("Error from SearchHackathons");
       });
   }
 
@@ -44,12 +45,13 @@ class AllHackathons extends Component {
         <Header 
         as="h1"
         style={{ padding: "1.5em 0em 1.5em" }}>
-          All Hackathons
+          Search Hackathons
           <Header.Subheader>
-            View all hackathons in our database. Don't see yours? 
+            Search through hackathons in our database. Don't see yours? 
             <a href="/new-hackathon"> Add it!</a>
           </Header.Subheader>
         </Header>
+        <Search />
         </Container>
         <Container>
         {hackathonList}
@@ -59,4 +61,4 @@ class AllHackathons extends Component {
   }
 }
 
-export default AllHackathons;
+export default SearchHackathons;

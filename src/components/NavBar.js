@@ -33,8 +33,8 @@ class NavBar extends Component {
               <Menu.Item as="a" href="/">
                 Home
               </Menu.Item>
-              <Menu.Item as="a" href="/all-hackathons">
-                All Hackathons
+              <Menu.Item as="a" href="/search-hackathons">
+                Search Hackathons
               </Menu.Item>
               <Menu.Item as="a" href="/new-hackathon">
                 Add a Hackathon
@@ -78,8 +78,8 @@ class NavBar extends Component {
               <Menu.Item active as="a" href="/">
                 Home
               </Menu.Item>
-              <Menu.Item as="a" href="/all-hackathons">
-                All Hackathons
+              <Menu.Item as="a" href="/search-hackathons">
+                Search Hackathons
               </Menu.Item>
               <Menu.Item as="a" href="/new-hackathon">
                 Add a Hackathon

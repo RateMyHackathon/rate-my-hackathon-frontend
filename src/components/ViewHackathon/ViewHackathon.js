@@ -63,6 +63,7 @@ class ViewHackathon extends Component {
         <div>
         <Message>
           <Grid textAlign="center">
+            <Grid.Row><br/></Grid.Row>
             <Grid.Row>
               <Header as="h2">No Reviews</Header>
             </Grid.Row>
@@ -72,6 +73,7 @@ class ViewHackathon extends Component {
                 <Link to={`/new-review/${hackathon._id}`}>add one</Link>?
               </p>
             </Grid.Row>
+            <Grid.Row><br/></Grid.Row>
           </Grid>
         </Message>
         <Divider hidden/>
