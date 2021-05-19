@@ -4,7 +4,7 @@ import axios from "axios";
 // import { Link } from 'react-router-dom';
 import HackathonCard from "./HackathonCard";
 import { Container, Header } from "semantic-ui-react";
-import Search from "../Search"
+import Search from "../Search";
 
 class SearchHackathons extends Component {
   constructor(props) {
@@ -41,22 +41,22 @@ class SearchHackathons extends Component {
 
     return (
       <div>
-      <Container textAlign="center">
-        <Header 
-        as="h1"
-        style={{ padding: "1.5em 0em 1.5em" }}>
-          Search Hackathons
-          <Header.Subheader>
-            Search through hackathons in our database. Don't see yours? 
-            <a href="/new-hackathon"> Add it!</a>
-          </Header.Subheader>
-        </Header>
-        <Search />
+        <Container textAlign="center">
+          <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+            Search Hackathons
+            <Header.Subheader>
+              Search through hackathons in our database. Don't see yours?
+              <a href="/new-hackathon"> Add it!</a>
+            </Header.Subheader>
+          </Header>
+          <Search />
         </Container>
-        <Container>
-        {hackathonList}
+
+        <Container style={{ padding: "3em 0 0" }}>
+          <Header as="h2">Displaying search results for: {}</Header>
+          {hackathonList}
         </Container>
-        </div>
+      </div>
     );
   }
 }

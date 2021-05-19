@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/RMH_black.png";
-import { Button, Container, Grid, Icon, Menu, Image } from "semantic-ui-react";
+import { Button, Container, Grid, Icon, Menu, Image, Input } from "semantic-ui-react";
 
 class NavBar extends Component {
   state = {
@@ -41,12 +41,11 @@ class NavBar extends Component {
               </Menu.Item>
 
               {/* <Menu.Menu position="right">
-                <Menu.Item as="a">Default</Menu.Item>
-                <Menu.Item active as="a">
-                  Static top
+                <Menu.Item>
+                <Input icon='search' placeholder='Search...' />
                 </Menu.Item>
-                <Menu.Item as="a">Fixed top</Menu.Item>
               </Menu.Menu> */}
+              
             </Container>
           </Menu>
         </Grid>

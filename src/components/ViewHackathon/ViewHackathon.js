@@ -112,7 +112,7 @@ class ViewHackathon extends Component {
     }
 
     return (
-      <div className="content">
+      <div>
         <Container>
           <Grid>
             <Grid.Column width={12}>
