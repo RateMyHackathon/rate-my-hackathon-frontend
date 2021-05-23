@@ -4,7 +4,7 @@ import axios from "axios";
 // import { Link } from 'react-router-dom';
 import HackathonCard from "./HackathonCard";
 import { Container, Header } from "semantic-ui-react";
-import Search from "../Search";
+import SearchBar from "../SearchBar";
 
 class SearchHackathons extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class SearchHackathons extends Component {
               <a href="/new-hackathon"> Add it!</a>
             </Header.Subheader>
           </Header>
-          <Search />
+          <SearchBar />
         </Container>
 
         <Container style={{ padding: "3em 0 0" }}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Header, Segment } from "semantic-ui-react";
-import Search from "../Search";
+import SearchBar from "../SearchBar";
 
 const HomeHeader = () => {
   return (
@@ -33,7 +33,7 @@ const HomeHeader = () => {
             marginBottom: "1.5em",
           }}
         />
-        <Search />
+        <SearchBar />
       </Container>
     </Segment>
   );
