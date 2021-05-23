@@ -3,7 +3,7 @@ import "../../App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import HackathonCard from "./HackathonCard";
-import { Container, Header, Input, Message, Grid } from "semantic-ui-react";
+import { Container, Header, Input, Message, Grid, Divider } from "semantic-ui-react";
 
 class SearchHackathons extends Component {
   constructor(props) {
@@ -66,17 +66,25 @@ class SearchHackathons extends Component {
     );
     
     if (this.state.hackathons.length >= 1) {
-      hackathonsList = this.state.hackathons.map((hackathon, k) => (
+      let hackathonCards = this.state.hackathons.map((hackathon, k) => (
         <HackathonCard hackathon={hackathon} key={k} />
       ));
+
+      // pad bottom if only 1 result appears so that footer is at bottom of page
+      if (this.state.hackathons.length === 1) {
+        hackathonsList = (
+          <div style={{"padding-bottom" : "100px"}}>
+            {hackathonCards}
+          </div>
+        )
+      } else {
+        hackathonsList = hackathonCards;
+      }
     }
-    
     return hackathonsList;
   }
 
   render() {
-    // const hackathons = this.state.hackathons;
-    // const query = this.state.query;
     return (
       <div>
         <Container textAlign="center">
@@ -94,7 +102,7 @@ class SearchHackathons extends Component {
             placeholder="Search hackathons..."
           />
         </Container>
-
+        
         <Container style={{ padding: "3em 0 0" }}>
           {this.renderHackathons}
         </Container>
