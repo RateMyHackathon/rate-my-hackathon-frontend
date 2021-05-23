@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import logo from "../assets/RMH_black.png";
-import { Button, Container, Grid, Icon, Menu, Image, Input } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Grid,
+  Icon,
+  Menu,
+  Image,
+} from "semantic-ui-react";
+// import Login from "./Login"
+// import Logout from "./Logout"
 
 class NavBar extends Component {
   state = {
@@ -25,27 +34,32 @@ class NavBar extends Component {
       <div>
         {/* For Tablet / Computer */}
         <Grid padded className="tablet computer only">
-          <Menu borderless fluid size="huge">
+          <Menu borderless fluid>
             <Container>
               <Menu.Item header as="a" href="/">
                 <Image src={logo} size="tiny"></Image>
               </Menu.Item>
-              <Menu.Item as="a" href="/">
-                Home
-              </Menu.Item>
-              <Menu.Item as="a" href="/search">
-                Search Hackathons
-              </Menu.Item>
-              <Menu.Item as="a" href="/new-hackathon">
-                Add a Hackathon
-              </Menu.Item>
+              <Menu.Item
+                name="home"
+                href="/"
+              />
+              <Menu.Item
+                name="search"
+                href="/search"
+              />
+              <Menu.Item
+                name="addAHackathon"
+                href="/new-hackathon"
+              />
 
               {/* <Menu.Menu position="right">
                 <Menu.Item>
-                <Input icon='search' placeholder='Search...' />
+                  <Login />
+                </Menu.Item>
+                <Menu.Item>
+                  <Logout />
                 </Menu.Item>
               </Menu.Menu> */}
-              
             </Container>
           </Menu>
         </Grid>
@@ -74,11 +88,11 @@ class NavBar extends Component {
               fluid
               style={this.state.dropdownMenuStyle}
             >
-              <Menu.Item active as="a" href="/">
+              <Menu.Item as="a" href="/">
                 Home
               </Menu.Item>
               <Menu.Item as="a" href="/search">
-                Search Hackathons
+                Search
               </Menu.Item>
               <Menu.Item as="a" href="/new-hackathon">
                 Add a Hackathon

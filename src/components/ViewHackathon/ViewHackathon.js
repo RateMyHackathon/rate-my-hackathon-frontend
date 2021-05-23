@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
 import ReviewCard from "./ReviewCard";
-import {
-  Header,
-  Container,
-  Button,
-  Grid,
-  Message
-} from "semantic-ui-react";
+import { Header, Container, Button, Grid, Message } from "semantic-ui-react";
 
 function calculateAvgRating(ratings) {
   var sum = 0;
@@ -66,25 +60,18 @@ class ViewHackathon extends Component {
     let reviewList;
     if (hackathon.reviews === undefined || hackathon.reviews.length < 1) {
       reviewList = (
-        <Message>
-          <Grid textAlign="center">
-            <Grid.Row>
-              <br />
-            </Grid.Row>
-            <Grid.Row>
-              <Header as="h2">No Reviews</Header>
-            </Grid.Row>
-            <Grid.Row>
-              <p>
-                This hackathon doesn't have any reviews. Why not be the first to{" "}
+        <div style={{ textAlign: "center" }}>
+          <Message>
+            <Header as="h2" style={{ padding: "3em 0em 3em" }}>
+              This hackathon doesn't have any reviews.
+              <Header.Subheader>
+                <br />
+                Why not be the first to{" "}
                 <Link to={`/new-review/${hackathon._id}`}>add one</Link>?
-              </p>
-            </Grid.Row>
-            <Grid.Row>
-              <br />
-            </Grid.Row>
-          </Grid>
-        </Message>
+              </Header.Subheader>
+            </Header>
+          </Message>
+        </div>
       );
     } else {
       reviewList = hackathon.reviews.map((review, k) => (
@@ -120,7 +107,13 @@ class ViewHackathon extends Component {
         <Container>
           <Grid>
             <Grid.Column width={12}>
-              <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+              <Header
+                as="h1"
+                style={{
+                  fontSize: "3em",
+                  padding: "1.5em 0em 1.5em",
+                }}
+              >
                 {hackathon.name}
                 <Header.Subheader>
                   {hackathon.description}
@@ -138,7 +131,13 @@ class ViewHackathon extends Component {
               </Header>
             </Grid.Column>
             <Grid.Column textAlign="right" width={4}>
-              <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+              <Header
+                as="h1"
+                style={{
+                  fontSize: "3em",
+                  padding: "1.5em 0em 1.5em",
+                }}
+              >
                 {ratingString}
                 <Header.Subheader>{numReviews} Reviews</Header.Subheader>
               </Header>

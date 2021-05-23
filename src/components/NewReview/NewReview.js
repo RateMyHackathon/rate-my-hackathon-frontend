@@ -37,12 +37,6 @@ class NewReview extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // selectedItem = (e, data) => {
-  //   this.setState({
-  //     reviewTags: data.value
-  //   });
-  // }
-
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   onSubmit = (e) => {
@@ -58,6 +52,7 @@ class NewReview extends Component {
       tags: reviewTags,
       numUp: 0,
       numDown: 0,
+      dateAdded: Date.now
     };
 
     const data = {

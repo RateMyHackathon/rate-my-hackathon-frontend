@@ -3,7 +3,7 @@ import "../../App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import HackathonCard from "./HackathonCard";
-import { Container, Header, Input, Message, Grid, Divider } from "semantic-ui-react";
+import { Container, Header, Input, Message, Grid } from "semantic-ui-react";
 
 class SearchHackathons extends Component {
   constructor(props) {
@@ -91,8 +91,9 @@ class SearchHackathons extends Component {
           <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
             Search Hackathons
             <Header.Subheader>
-              Search through hackathons in our database. Don't see yours?
-              <a href="/new-hackathon"> Add it!</a>
+              Search through hackathons in our database.
+              <br/>
+              Can't find the one you're looking for? <a href="/new-hackathon"> Add it!</a>
             </Header.Subheader>
           </Header>
           <Input

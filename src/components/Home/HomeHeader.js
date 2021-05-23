@@ -35,7 +35,7 @@ const HomeHeader = () => {
           }}
         />
         <Link to="/search">
-          <Button primary>Search for a hackathon</Button>
+          <Button primary size="huge">Search for a hackathon</Button>
         </Link>
       </Container>
     </Segment>

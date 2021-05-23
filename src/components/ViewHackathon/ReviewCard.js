@@ -5,7 +5,7 @@ import { Card, Label } from "semantic-ui-react";
 const ReviewCard = (props) => {
   const review = props.review;
 
-  var dateString = new Date(review.date_updated).toDateString(); // turn date into readable string (MMM DD YYYY)
+  var dateString = new Date(review.dateAdded).toDateString(); // turn date into readable string (MMM DD YYYY)
   dateString = dateString.substr(dateString.indexOf(" ") + 1); // remove day of week from date
 
   const tags = review.tags;
@@ -31,9 +31,6 @@ const ReviewCard = (props) => {
         <Card.Description>{review.description}</Card.Description>
         <br />
         <Card.Meta>
-          {/* <span className="left">
-            {tagList}
-          </span> */}
           <span className="left">{dateString}</span>
         </Card.Meta>
       </Card.Content>
@@ -42,9 +39,9 @@ const ReviewCard = (props) => {
           {tagList}
         </span>
         <span className="right">
+          {/* <i class="arrow up icon"></i> {review.numUp} &emsp;
+          <i class="arrow down icon"></i> {review.numDown} */}
           {/* <i class="flag outline icon"></i> */}
-          <i class="arrow up icon"></i> {review.numUp} &emsp;
-          <i class="arrow down icon"></i> {review.numDown}
         </span>
       </Card.Content>
     </Card>

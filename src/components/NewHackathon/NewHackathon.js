@@ -117,14 +117,14 @@ class NewHackathon extends Component {
             />
 
             <Header as="h3">Additional Info</Header>
-            <Form.Input
+            {/* <Form.Input
               fluid
               label="Website URL"
               placeholder="https://www.ratemyhackathon.online"
               name="url"
               value={this.state.url}
               onChange={this.onChange}
-            />
+            /> */}
 
             <Form.Select
               fluid
