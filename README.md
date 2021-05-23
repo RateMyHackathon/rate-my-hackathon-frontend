@@ -20,7 +20,7 @@ To run the client:
   - [x] View All Hackathons page
   - [x] View Hackathon page
   - [x] Home page
-- [ ] Implement search functionality
+- [x] Implement search functionality
 - [ ] Add auth (via GitHub and/or Google?)
   - [ ] Upvote and downvote reviews
   - [ ] Flag a review to be removed
