@@ -9,7 +9,6 @@ const ReviewCard = (props) => {
   dateString = dateString.substr(dateString.indexOf(" ") + 1); // remove day of week from date
 
   const tags = review.tags;
-  // console.log('tags = ' + tags);
 
   let tagList;
 
@@ -39,9 +38,9 @@ const ReviewCard = (props) => {
           {tagList}
         </span>
         <span className="right">
-          {/* <i class="arrow up icon"></i> {review.numUp} &emsp;
-          <i class="arrow down icon"></i> {review.numDown} */}
-          {/* <i class="flag outline icon"></i> */}
+          <i className="arrow up icon"></i> {review.numUp} &emsp;
+          <i className="arrow down icon"></i> {review.numDown}
+          {/* <i className="flag outline icon"></i> */}
         </span>
       </Card.Content>
     </Card>

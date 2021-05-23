@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../../App.css";
-import { Header, Container, Form, Button, Divider } from "semantic-ui-react";
+import {
+  Header,
+  Container,
+  Form,
+  Button,
+  Divider,
+  Message,
+} from "semantic-ui-react";
 
 class NewReview extends Component {
   constructor(props) {
@@ -50,16 +57,19 @@ class NewReview extends Component {
       description: reviewDescription,
       rating: reviewRating,
       tags: reviewTags,
-      numUp: 0,
-      numDown: 0,
-      dateAdded: Date.now
+      dateAdded: new Date(),
+      dateUpdated: new Date(),
     };
+
+    console.log(obj);
 
     const data = {
       name: this.state.name,
       description: this.state.description,
       reviews: [...this.state.reviews, obj],
     };
+
+    console.log(data);
 
     axios
       .put(
@@ -116,25 +126,15 @@ class NewReview extends Component {
 
     return (
       <div>
-        <Container textAlign="center">
-          <Header as="h1" style={{ padding: "1.5em 0em 1.5em" }}>
+        <Container>
+          <Header
+            textAlign="center"
+            as="h1"
+            style={{ padding: "1.5em 0em 1.5em" }}
+          >
             Add a Review - {this.state.name}
             <Header.Subheader>
-              Before submitting your review, please remember:
-              <br />
-              <br />
-              Be honest. This review should be based on <u>your</u> own
-              experience.
-              <br />
-              Be respectful. Do not include profanity or derogatory names in
-              your review.
-              <br />
-              When criticizing, be sure that it is <u>constructive</u>, not
-              destructive.
-              <br />
-              <br />
-              RMH reserves the right to remove any reviews that violate any of
-              these terms.
+              Tell us about your experience at this hackathon!
             </Header.Subheader>
           </Header>
         </Container>
@@ -180,6 +180,27 @@ class NewReview extends Component {
             />
 
             <Divider hidden />
+            <Message>
+              <Message.Header>
+                Before adding your review, please remember:
+              </Message.Header>
+              <p>
+                Be honest. This review should be based on <u>your</u> own
+                experience.
+                <br />
+                Be respectful. Do not include profanity or derogatory names in
+                your review.
+                <br />
+                When criticizing, ensure that it is <u>constructive</u>, not
+                destructive.
+                <br />
+                <br />
+                RMH reserves the right to remove any reviews that violate any of
+                these terms.
+              </p>
+            </Message>
+            <Divider hidden />
+
             <Button fluid primary type="submit">
               Add Review
             </Button>

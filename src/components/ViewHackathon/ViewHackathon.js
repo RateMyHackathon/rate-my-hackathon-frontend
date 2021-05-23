@@ -81,7 +81,6 @@ class ViewHackathon extends Component {
 
     // calculate avg rating
     let avgRating, ratingString, numReviews;
-    console.log(hackathon.reviews);
     if (hackathon.reviews) {
       var ratings = [];
       const reviews = hackathon.reviews;
