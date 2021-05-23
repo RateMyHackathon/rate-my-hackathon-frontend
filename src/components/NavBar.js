@@ -33,7 +33,7 @@ class NavBar extends Component {
               <Menu.Item as="a" href="/">
                 Home
               </Menu.Item>
-              <Menu.Item as="a" href="/search-hackathons">
+              <Menu.Item as="a" href="/search">
                 Search Hackathons
               </Menu.Item>
               <Menu.Item as="a" href="/new-hackathon">
@@ -77,7 +77,7 @@ class NavBar extends Component {
               <Menu.Item active as="a" href="/">
                 Home
               </Menu.Item>
-              <Menu.Item as="a" href="/search-hackathons">
+              <Menu.Item as="a" href="/search">
                 Search Hackathons
               </Menu.Item>
               <Menu.Item as="a" href="/new-hackathon">

@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Header, Segment } from "semantic-ui-react";
-import SearchBar from "../SearchBar";
+import { Link } from "react-router-dom";
+import { Container, Header, Segment, Button } from "semantic-ui-react";
 
 const HomeHeader = () => {
   return (
@@ -23,17 +23,20 @@ const HomeHeader = () => {
           }}
         />
         <Header
-          as="h2"
-          content="Search for a hackathon"
+          as="h3"
+          content="RMH allows hackers to rate hackathons so that others can 
+            discover which ones to look out for and which ones to avoid."
           inverted
           style={{
-            fontSize: "1.7em",
+            // fontSize: "1.7em",
             fontWeight: "normal",
             marginTop: "1.5em",
             marginBottom: "1.5em",
           }}
         />
-        <SearchBar />
+        <Link to="/search">
+          <Button primary>Search for a hackathon</Button>
+        </Link>
       </Container>
     </Segment>
   );

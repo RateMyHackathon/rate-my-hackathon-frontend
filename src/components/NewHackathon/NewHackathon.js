@@ -11,7 +11,7 @@ class NewHackathon extends Component {
       description: "",
       url: "",
       themes: [],
-      reviews: []
+      reviews: [],
     };
   }
 
@@ -21,9 +21,9 @@ class NewHackathon extends Component {
 
   selectedItem = (e, data) => {
     this.setState({
-      themes: data.value
+      themes: data.value,
     });
-  }
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ class NewHackathon extends Component {
       description: this.state.description,
       url: this.state.url,
       themes: this.state.themes,
-      reviews: []
+      reviews: [],
     };
 
     axios
@@ -44,7 +44,7 @@ class NewHackathon extends Component {
           description: "",
           url: "",
           themes: [],
-          reviews: []
+          reviews: [],
         });
         this.props.history.push("/");
       })
@@ -56,7 +56,11 @@ class NewHackathon extends Component {
   render() {
     const themeOptions = [
       { key: "ar", text: "AR/VR", value: "AR/VR" },
-      { key: "beginner", text: "Beginner Friendly", value: "Beginner Friendly" },
+      {
+        key: "beginner",
+        text: "Beginner Friendly",
+        value: "Beginner Friendly",
+      },
       { key: "blockchain", text: "Blockchain", value: "Blockchain" },
       { key: "communication", text: "Communication", value: "Communication" },
       { key: "cybersecurity", text: "Cybersecurity", value: "Cybersecurity" },
@@ -92,7 +96,7 @@ class NewHackathon extends Component {
         <Container>
           <Form onSubmit={this.onSubmit}>
             <Header as="h3">Basic Info</Header>
-          
+
             <Form.Input
               fluid
               required
@@ -133,9 +137,11 @@ class NewHackathon extends Component {
               value={this.state.themes}
               onChange={this.selectedItem}
             />
-            
+
             <Divider hidden />
-            <Button fluid primary type="submit">Add Hackathon</Button>
+            <Button fluid primary type="submit">
+              Add Hackathon
+            </Button>
           </Form>
         </Container>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Divider } from "semantic-ui-react";
-import "../App.css"
+import { Container } from "semantic-ui-react";
+import "../App.css";
 
 const Footer = () => {
   return (
@@ -9,8 +9,9 @@ const Footer = () => {
         <Container>
           <p>
             <span className="left">
-              Rate My Hackathon, 2021. &#8201; 
-              <br/>Made with ♥ by
+              Rate My Hackathon, 2021. &#8201;
+              <br />
+              Made with ♥ by
               <a href="https://github.com/lumamoto" className="px-1 text-muted">
                 {" "}
                 Lacey Umamoto

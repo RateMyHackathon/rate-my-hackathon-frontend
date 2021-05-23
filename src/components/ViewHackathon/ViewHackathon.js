@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
 import ReviewCard from "./ReviewCard";
-import { Header, Container, Button, Grid, Message, Divider } from "semantic-ui-react";
+import {
+  Header,
+  Container,
+  Button,
+  Grid,
+  Message
+} from "semantic-ui-react";
 
 function calculateAvgRating(ratings) {
   var sum = 0;
@@ -60,10 +66,11 @@ class ViewHackathon extends Component {
     let reviewList;
     if (hackathon.reviews === undefined || hackathon.reviews.length < 1) {
       reviewList = (
-        <div>
         <Message>
           <Grid textAlign="center">
-            <Grid.Row><br/></Grid.Row>
+            <Grid.Row>
+              <br />
+            </Grid.Row>
             <Grid.Row>
               <Header as="h2">No Reviews</Header>
             </Grid.Row>
@@ -73,14 +80,11 @@ class ViewHackathon extends Component {
                 <Link to={`/new-review/${hackathon._id}`}>add one</Link>?
               </p>
             </Grid.Row>
-            <Grid.Row><br/></Grid.Row>
+            <Grid.Row>
+              <br />
+            </Grid.Row>
           </Grid>
         </Message>
-        <Divider hidden/>
-        <Divider hidden/>
-        <Divider hidden/>
-        <Divider hidden/>
-        </div>
       );
     } else {
       reviewList = hackathon.reviews.map((review, k) => (
@@ -124,7 +128,7 @@ class ViewHackathon extends Component {
                   <br />
                   <br />
                 </Header.Subheader>
-                
+
                 <Link to={`/new-review/${hackathon._id}`}>
                   <Button primary>Add a Review</Button>
                 </Link>

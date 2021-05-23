@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import "../../App.css";
 import axios from "axios";
-// import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import HackathonCard from "./HackathonCard";
-import { Container, Header } from "semantic-ui-react";
-import SearchBar from "../SearchBar";
+import { Container, Header, Input, Message, Grid } from "semantic-ui-react";
 
 class SearchHackathons extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: "",
       hackathons: [],
     };
   }
 
+  // Show all hackathons when first visiting the page
   componentDidMount() {
     axios
       .get("http://localhost:8082/api/hackathons")
@@ -23,22 +24,59 @@ class SearchHackathons extends Component {
         });
       })
       .catch((err) => {
-        console.log("Error from SearchHackathons");
+        console.log("Error getting all hackathons in SearchHackathons");
       });
   }
 
-  render() {
-    const hackathons = this.state.hackathons;
-    let hackathonList;
+  search = async (val) => {
+    const res = await axios(
+      `http://localhost:8082/api/hackathons/search?q=${val}`
+    );
+    const hackathons = await res.data;
+    this.setState({ hackathons });
+  };
 
-    if (!hackathons) {
-      hackathonList = "there is no hackathon record!";
-    } else {
-      hackathonList = hackathons.map((hackathon, k) => (
+  onChangeHandler = async (e) => {
+    this.search(e.target.value);
+    this.setState({ value: e.target.value });
+  };
+
+  get renderHackathons() {
+    let hackathonsList = (
+        <Message>
+          <Grid textAlign="center">
+            <Grid.Row>
+              <br />
+            </Grid.Row>
+            <Grid.Row>
+              <Header as="h2">No Hackathons Found</Header>
+            </Grid.Row>
+            <Grid.Row>
+              <p>
+                No hackathons were found that matched this query. Try searching
+                for something else or{" "}
+                <Link to={`/new-hackathon/`}>add a hackathon</Link>!
+              </p>
+            </Grid.Row>
+            <Grid.Row>
+              <br />
+            </Grid.Row>
+          </Grid>
+        </Message>
+    );
+    
+    if (this.state.hackathons.length >= 1) {
+      hackathonsList = this.state.hackathons.map((hackathon, k) => (
         <HackathonCard hackathon={hackathon} key={k} />
       ));
     }
+    
+    return hackathonsList;
+  }
 
+  render() {
+    // const hackathons = this.state.hackathons;
+    // const query = this.state.query;
     return (
       <div>
         <Container textAlign="center">
@@ -49,12 +87,16 @@ class SearchHackathons extends Component {
               <a href="/new-hackathon"> Add it!</a>
             </Header.Subheader>
           </Header>
-          <SearchBar />
+          <Input
+            fluid
+            value={this.state.value}
+            onChange={(e) => this.onChangeHandler(e)}
+            placeholder="Search hackathons..."
+          />
         </Container>
 
         <Container style={{ padding: "3em 0 0" }}>
-          <Header as="h2">Displaying search results for: {}</Header>
-          {hackathonList}
+          {this.renderHackathons}
         </Container>
       </div>
     );

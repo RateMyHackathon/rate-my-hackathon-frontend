@@ -57,7 +57,7 @@ class NewReview extends Component {
       rating: reviewRating,
       tags: reviewTags,
       numUp: 0,
-      numDown: 0
+      numDown: 0,
     };
 
     const data = {
@@ -95,12 +95,28 @@ class NewReview extends Component {
       { key: "stressful", text: "Stressful", value: "Stressful" },
       { key: "judging", text: "Intense Judging", value: "Intense Judging" },
       { key: "mentors", text: "Amazing Mentors", value: "Amazing Mentors" },
-      { key: "panels", text: "Interesting Panels", value: "Interesting Panels" },
+      {
+        key: "panels",
+        text: "Interesting Panels",
+        value: "Interesting Panels",
+      },
       { key: "prizes", text: "Big Prizes", value: "Big Prizes" },
-      { key: "recruiters", text: "Great Sponsors/Recruiters", value: "Great Sponsors/Recruiters" },
-      { key: "resources", text: "Helpful Resources", value: "Helpful Resources" },
+      {
+        key: "recruiters",
+        text: "Great Sponsors/Recruiters",
+        value: "Great Sponsors/Recruiters",
+      },
+      {
+        key: "resources",
+        text: "Helpful Resources",
+        value: "Helpful Resources",
+      },
       { key: "swag", text: "Free Swag", value: "Free Swag" },
-      { key: "workshops", text: "Informative Workshops", value: "Informative Workshops" },
+      {
+        key: "workshops",
+        text: "Informative Workshops",
+        value: "Informative Workshops",
+      },
     ];
 
     return (

@@ -1,4 +1,4 @@
-body {
+html, body {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: grayscale;
 }
@@ -29,12 +29,16 @@ body {
   padding-right: 0;
 }
 
+.body {
+  position: relative;
+  padding-bottom:60px;
+}
+
 .ui.mobile.only.grid .ui.menu .ui.vertical.menu {
   display: none;
 }
 
 footer {
-  clear: both;
   position: relative;
   bottom: 0;
   width: 100%;
